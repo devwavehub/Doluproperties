@@ -1,5 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import ContactBar from '../../components/ContactBar';
 
 const ArmyRange = () => {
   return (
@@ -19,4 +19,11 @@ const ArmyRange = () => {
   );
 };
 
-export default ArmyRange;
+const ArmyRangePage: React.FC = () => (
+  <>
+    <ArmyRange />
+    <ContactBar />
+  </>
+);
+
+export default ArmyRangePage;

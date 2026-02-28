@@ -1,5 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import ContactBar from '../../components/ContactBar';
 
 const VillaAlora = () => {
   return (
@@ -19,4 +19,11 @@ const VillaAlora = () => {
   );
 };
 
-export default VillaAlora;
+const VillaAloraPage: React.FC = () => (
+  <>
+    <VillaAlora />
+    <ContactBar />
+  </>
+);
+
+export default VillaAloraPage;

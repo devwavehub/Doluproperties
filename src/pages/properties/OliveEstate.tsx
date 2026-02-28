@@ -1,5 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import ContactBar from '../../components/ContactBar';
 
 const OliveEstate = () => {
   return (
@@ -19,4 +19,12 @@ const OliveEstate = () => {
   );
 };
 
-export default OliveEstate;
+const OliveEstatePage: React.FC = () => (
+  <>
+    <OliveEstate />
+    <ContactBar />
+  </>
+);
+
+
+export default OliveEstatePage;

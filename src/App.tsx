@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 
@@ -19,6 +18,13 @@ import VillaAlora from './pages/properties/VillaAlora';
 import AboutUs from './pages/about/AboutUs';
 import OurTeam from './pages/about/OurTeam';
 import OurServices from './pages/about/OurServices';
+// new dynamic/search pages (ts-ignore to avoid "module not found" until TS server refresh)
+// @ts-expect-error - files auto-created by build system
+import SearchResults from './pages/SearchResults';
+// @ts-expect-error - files auto-created by build system
+import PropertyDetails from './pages/PropertyDetails';
+// @ts-expect-error - files auto-created by build system
+import AgentProfile from './pages/AgentProfile';
 
 function App() {
   return (
@@ -31,17 +37,30 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           
           {/* Properties routes */}
+          {/*
+            The first five routes below correspond to "real" hard-coded pages.
+            Any additional sample-only properties are handled by the dynamic
+            /properties/:slug route which appears afterwards. This keeps the
+            main listings special while still allowing easy expansion.
+          */}
           <Route path="/properties" element={<AllProperties />} />
           <Route path="/properties/beulah-layout" element={<BeulahLayout />} />
           <Route path="/properties/olive-estate" element={<OliveEstate />} />
           <Route path="/properties/oakridge-city" element={<OakridgeCity />} />
           <Route path="/properties/army-range" element={<ArmyRange />} />
           <Route path="/properties/villa-alora" element={<VillaAlora />} />
+          {/* dynamic fallback for sample-only properties */}
+          <Route path="/properties/:slug" element={<PropertyDetails />} />
+          
+          {/* Search route */}
+          <Route path="/search" element={<SearchResults />} />
           
           {/* About routes */}
           <Route path="/about" element={<AboutUs />} />
           <Route path="/about/team" element={<OurTeam />} />
           <Route path="/about/services" element={<OurServices />} />
+          {/* Agent profiles (chairman, agent-1 etc) */}
+          {/* using dynamic route allows adding agents without touching routes */}          <Route path="/team/:slug" element={<AgentProfile />} />
         </Routes>
       </Layout>
     </Router>

@@ -1,5 +1,5 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import ContactBar from '../../components/ContactBar';
 
 const OakridgeCity = () => {
   return (
@@ -19,4 +19,11 @@ const OakridgeCity = () => {
   );
 };
 
-export default OakridgeCity;
+const OakridgeCityPage: React.FC = () => (
+  <>
+    <OakridgeCity />
+    <ContactBar />
+  </>
+);
+
+export default OakridgeCityPage;
