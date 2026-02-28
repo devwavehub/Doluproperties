@@ -3,7 +3,7 @@
 A modern real estate website built for **Dolu Properties** to showcase property listings, estates, and company information in a clean and professional way.
 
 ## 🌐 Live Website
-[https://your-vercel-link.vercel.app/](https://doluproperties.vercel.app/)
+[https://your-vercel-link.vercel.app/](https://doluproperties2.vercel.app/)
 
 ---
 

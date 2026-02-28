@@ -1,16 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Globe } from 'lucide-react';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const Contact: React.FC = () => {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '', honey: '' });
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+    honey: '',
+  });
+
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<{ type: 'success' | 'error' | null; message?: string }>({ type: null });
+  const [status, setStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message?: string;
+  }>({ type: null });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,8 +29,9 @@ const Contact: React.FC = () => {
 
   const validate = () => {
     if (form.honey) return { ok: false, msg: 'Spam detected' };
-    if (!form.name.trim() || !form.email.trim() || !form.subject.trim() || !form.message.trim())
+    if (!form.name.trim() || !form.email.trim() || !form.subject.trim() || !form.message.trim()) {
       return { ok: false, msg: 'Please fill required fields' };
+    }
     return { ok: true };
   };
 
@@ -51,7 +63,6 @@ const Contact: React.FC = () => {
       setStatus({ type: 'success', message: 'Message sent — we will contact you shortly.' });
       setForm({ name: '', email: '', phone: '', subject: '', message: '', honey: '' });
     } catch (err) {
-      // log the error for debugging (avoids unused variable lint error)
       console.error('EmailJS send error:', err);
       setStatus({ type: 'error', message: 'Failed to send message. Please try again later.' });
     } finally {
@@ -59,10 +70,25 @@ const Contact: React.FC = () => {
     }
   };
 
-  const phone = '+2347012345678';
-  const whatsapp = '+2347012345678';
+  // ✅ Correct details from your screenshot
+  const phone = '08055489605';
+  const whatsapp = '08055489605';
   const email = 'info@doluproperties.com';
-  const address = 'No. 19B Ada George Road, Opposite Father\'s House Church, Port Harcourt, Rivers State';
+  const website = 'doluproperties.com';
+
+  // ✅ Correct address (more exact)
+  const address =
+    "19B Ada-George Road, opposite Fathers House Church, Mgbuoba, Port Harcourt 500272, Rivers State, Nigeria";
+
+  // ✅ Stronger map pin: include business name + full address
+  const MAP_QUERY = useMemo(() => {
+    return `Dolu Properties, ${address}`;
+  }, [address]);
+
+  const mapSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`;
+
+  // ✅ Map iframe
+  const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&output=embed`;
 
   return (
     <div className="w-full">
@@ -86,7 +112,9 @@ const Contact: React.FC = () => {
               Get In Touch
             </span>
             <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold text-white">Contact Us</h1>
-            <p className="mt-2 text-white/90 max-w-2xl mx-auto">Have a question or ready to start your property journey? Our team is here to help you.</p>
+            <p className="mt-2 text-white/90 max-w-2xl mx-auto">
+              Have a question or ready to start your property journey? Our team is here to help you.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -112,7 +140,7 @@ const Contact: React.FC = () => {
                 {
                   title: 'WhatsApp',
                   subtitle: whatsapp,
-                  href: `https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`,
+                  href: `https://wa.me/234${whatsapp.replace(/^0/, '')}`,
                   icon: <MessageCircle className="h-6 w-6 text-primary" />,
                 },
                 {
@@ -122,9 +150,15 @@ const Contact: React.FC = () => {
                   icon: <Mail className="h-6 w-6 text-primary" />,
                 },
                 {
+                  title: 'Website',
+                  subtitle: website,
+                  href: `https://${website}`,
+                  icon: <Globe className="h-6 w-6 text-primary" />,
+                },
+                {
                   title: 'Office',
                   subtitle: address,
-                  href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`,
+                  href: mapSearchUrl,
                   icon: <MapPin className="h-6 w-6 text-primary" />,
                 },
               ].map((c) => (
@@ -150,6 +184,16 @@ const Contact: React.FC = () => {
               <h3 className="text-lg font-bold text-dark">Office Hours</h3>
               <p className="text-grayText mt-2">Mon - Sat: 9:00 AM — 6:00 PM</p>
               <p className="text-grayText mt-2">{address}</p>
+
+              <a
+                href={mapSearchUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-dark bg-primary/15 px-4 py-2 rounded-xl hover:bg-primary/20 transition"
+              >
+                <MapPin className="h-4 w-4" />
+                Open in Google Maps
+              </a>
             </div>
           </div>
 
@@ -159,7 +203,13 @@ const Contact: React.FC = () => {
               <h3 className="text-xl font-bold text-dark mb-3">Send us a message</h3>
 
               {status.type && (
-                <div className={`mb-4 px-4 py-3 rounded-lg text-sm ${status.type === 'success' ? 'bg-green-50 text-green-800 border border-green-100' : 'bg-red-50 text-red-800 border border-red-100'}`}>
+                <div
+                  className={`mb-4 px-4 py-3 rounded-lg text-sm ${
+                    status.type === 'success'
+                      ? 'bg-green-50 text-green-800 border border-green-100'
+                      : 'bg-red-50 text-red-800 border border-red-100'
+                  }`}
+                >
                   {status.message}
                 </div>
               )}
@@ -222,8 +272,20 @@ const Contact: React.FC = () => {
                 >
                   {loading ? (
                     <svg className="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        fill="none"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                      ></path>
                     </svg>
                   ) : null}
                   {loading ? 'Sending…' : 'Send Message'}
@@ -240,7 +302,7 @@ const Contact: React.FC = () => {
               <div className="w-full h-72 sm:h-96">
                 <iframe
                   title="office-location"
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`}
+                  src={mapEmbedSrc}
                   className="w-full h-full border-0"
                   loading="lazy"
                 />
@@ -259,9 +321,20 @@ const Contact: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <a href={`tel:${phone}`} className="bg-primary text-dark px-4 py-2 rounded-xl font-semibold">Call</a>
-            <a href={`https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}`} className="bg-white text-dark px-4 py-2 rounded-xl font-semibold">WhatsApp</a>
-            <a href={`mailto:${email}`} className="border border-white/20 px-4 py-2 rounded-xl">Email</a>
+            <a href={`tel:${phone}`} className="bg-primary text-dark px-4 py-2 rounded-xl font-semibold">
+              Call
+            </a>
+            <a
+              href={`https://wa.me/234${whatsapp.replace(/^0/, '')}`}
+              className="bg-white text-dark px-4 py-2 rounded-xl font-semibold"
+              target="_blank"
+              rel="noreferrer"
+            >
+              WhatsApp
+            </a>
+            <a href={`mailto:${email}`} className="border border-white/20 px-4 py-2 rounded-xl">
+              Email
+            </a>
           </div>
         </div>
       </section>
