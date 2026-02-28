@@ -19,6 +19,7 @@ const Navigation = () => {
     { name: 'Oakridge City Estate', path: '/properties/oakridge-city' },
     { name: 'Army Range', path: '/properties/army-range' },
     { name: 'Villa Alora', path: '/properties/villa-alora' },
+    { name: 'Primebrook Estate', path: '/properties/primebrook-estate' },
   ];
 
   const aboutItems = [

@@ -13,6 +13,7 @@ import OliveEstate from './pages/properties/OliveEstate';
 import OakridgeCity from './pages/properties/OakridgeCity';
 import ArmyRange from './pages/properties/ArmyRange';
 import VillaAlora from './pages/properties/VillaAlora';
+import PrimebrookEstate from './pages/properties/PrimebrookEstate';
 
 // About pages
 import AboutUs from './pages/about/AboutUs';
@@ -49,6 +50,7 @@ function App() {
           <Route path="/properties/oakridge-city" element={<OakridgeCity />} />
           <Route path="/properties/army-range" element={<ArmyRange />} />
           <Route path="/properties/villa-alora" element={<VillaAlora />} />
+          <Route path="/properties/primebrook-estate" element={<PrimebrookEstate />} />
           {/* dynamic fallback for sample-only properties */}
           <Route path="/properties/:slug" element={<PropertyDetails />} />
           
