@@ -8,7 +8,7 @@ const ArmyRange: React.FC = () => {
   return (
     <div className="w-full">
       {/* Hero section */}
-      <section className="container mx-auto px-4 py-12">
+      <section className="container mx-auto px-4 py-12 bg-lime-50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -12 }}
@@ -28,9 +28,9 @@ const ArmyRange: React.FC = () => {
 
             {/* CTA buttons */}
             <div className="flex flex-wrap gap-3 mt-6">
-              <a className="bg-primary text-dark px-4 py-2 rounded-xl font-semibold">Book Inspection</a>
-              <a href="https://wa.me/2347012345678" className="bg-white text-dark px-4 py-2 rounded-xl font-semibold">Chat on WhatsApp</a>
-              <a href="tel:+2347012345678" className="border border-gray-200 px-4 py-2 rounded-xl">Call Now</a>
+              <a className="bg-lime-600 text-white px-4 py-2 rounded-xl font-semibold">Book Inspection</a>
+              <a href="https://wa.me/2347012345678" className="bg-lime-600 text-white px-4 py-2 rounded-xl font-semibold">Chat on WhatsApp</a>
+              <a href="tel:+2347012345678" className="bg-lime-600 text-white px-4 py-2 rounded-xl">Call Now</a>
             </div>
           </motion.div>
 
@@ -176,7 +176,7 @@ const ArmyRange: React.FC = () => {
       {/* Sticky mobile CTA */}
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 md:hidden">
         <div className="bg-white rounded-full shadow-lg px-4 py-2 flex items-center gap-3">
-          <a href="https://wa.me/2347012345678" className="bg-green-500 text-white px-4 py-2 rounded-full">WhatsApp</a>
+          <a href="https://wa.me/2347012345678" className="bg-lime-600 text-white px-4 py-2 rounded-full">WhatsApp</a>
           <a href="tel:+2347012345678" className="bg-primary text-dark px-4 py-2 rounded-full">Call</a>
         </div>
       </div>

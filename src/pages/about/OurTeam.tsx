@@ -102,11 +102,11 @@ const OurTeam = () => {
                   className="group rounded-2xl overflow-hidden bg-white border border-black/5 shadow-sm hover:shadow-lg transition"
                 >
                   {/* Image header */}
-                  <div className="relative h-60">
+                  <div className="relative h-72 bg-gray-100 flex items-center justify-center">
                     <img
                       src={a.photo}
                       alt={a.name}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="max-h-full max-w-full object-contain"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />

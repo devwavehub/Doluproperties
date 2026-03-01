@@ -9,14 +9,14 @@ const BeulahLayout: React.FC = () => {
   return (
     <div className="w-full">
       {/* Hero: split layout (image right on desktop) */}
-      <section className="container mx-auto px-4 py-12">
+      <section className="container mx-auto px-4 py-12 bg-amber-50">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-dark">Beulah Layout</h1>
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-amber-600">Beulah Layout</h1>
             <p className="text-grayText mt-2">Abara Etche — Plot size: 460SQM</p>
 
             {/* Pricing chips */}
