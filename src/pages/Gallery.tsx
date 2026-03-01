@@ -28,10 +28,10 @@ const Gallery = () => {
         />
 
         {/* Yellow Overlay */}
-        <div className="absolute inset-0 bg-primary/70" />
+        <div className="absolute inset-0 bg-primary/40" />
 
         {/* Dark Tint for Text */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/60" />
 
         {/* Content */}
         <div className="relative z-10 flex items-center justify-center h-full text-center px-6 pt-24 sm:pt-32">

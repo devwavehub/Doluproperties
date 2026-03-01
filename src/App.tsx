@@ -19,12 +19,9 @@ import PrimebrookEstate from './pages/properties/PrimebrookEstate';
 import AboutUs from './pages/about/AboutUs';
 import OurTeam from './pages/about/OurTeam';
 import OurServices from './pages/about/OurServices';
-// new dynamic/search pages (ts-ignore to avoid "module not found" until TS server refresh)
-// @ts-expect-error - files auto-created by build system
+// new dynamic/search pages
 import SearchResults from './pages/SearchResults';
-// @ts-expect-error - files auto-created by build system
 import PropertyDetails from './pages/PropertyDetails';
-// @ts-expect-error - files auto-created by build system
 import AgentProfile from './pages/AgentProfile';
 
 function App() {

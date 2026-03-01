@@ -99,8 +99,8 @@ const Contact: React.FC = () => {
           alt="hero"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-primary/60 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-primary/35 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 container mx-auto px-4 pt-24 sm:pt-32 h-full flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}

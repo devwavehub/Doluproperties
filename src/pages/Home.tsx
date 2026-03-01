@@ -65,208 +65,210 @@ const Home = () => {
       transition={{ duration: 0.6 }}
       className="w-full"
     >
-      {/* =============== HERO + SEARCH =============== */}
-      <section className="relative w-full min-h-[100vh] overflow-hidden">
-        <img
-          src={villaAlora2}
-          alt="Dolu Properties"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+{/* =============== HERO + SEARCH =============== */}
+<section className="relative w-full min-h-[100vh] overflow-hidden">
+  <img
+    src={villaAlora2}
+    alt="Dolu Properties"
+    className="absolute inset-0 h-full w-full object-cover"
+  />
 
-        {/* overlays */}
-        <div className="absolute inset-0 bg-[#F4C400]/45" />
-        <div className="absolute inset-0 bg-black/45" />
+  {/* overlays */}
+  <div className="absolute inset-0 bg-[#F4C400]/15" />
+  <div className="absolute inset-0 bg-black/45" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-10">
-          <div className="max-w-3xl">
-            {/* badge */}
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm text-white backdrop-blur border border-white/15">
-              <BadgeCheck className="h-4 w-4 text-[#F4C400]" />
-              Rivers State Real Estate • Verified Listings
-            </div>
+  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-10">
+    {/* LEFT CONTENT (unchanged) */}
+    <div className="max-w-3xl">
+      {/* badge */}
+      <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm text-white backdrop-blur border border-white/15">
+        <BadgeCheck className="h-4 w-4 text-[#F4C400]" />
+        Rivers State Real Estate • Verified Listings
+      </div>
 
-            {/* headline */}
-            <h1 className="mt-6 text-4xl sm:text-6xl font-extrabold tracking-tight text-white">
-              Welcome To{' '}
-              <span className="text-[#F4C400]">Dolu Properties</span>
-            </h1>
+      {/* headline */}
+      <h1 className="mt-6 text-4xl sm:text-6xl font-extrabold tracking-tight text-white">
+        Welcome To{' '}
+        <span className="text-[#F4C400]">Dolu Properties</span>
+      </h1>
 
-          
+      {/* subtext */}
+      <p className="mt-5 text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
+        Invest smart with Dolu Properties. Our verified lands in Port Harcourt offer security,
+        appreciation, and peace of mind guaranteed.
+      </p>
 
-            {/* subtext */}
-            <p className="mt-5 text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
-              Invest smart with Dolu Properties. Our verified lands in Port Harcourt offer security, appreciation, and peace of mind guaranteed.
-            </p>
-
-            {/* trust bullets */}
-            <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
-              {[
-                { label: 'Verified Documentation', icon: ShieldCheck },
-                { label: 'Prime Locations', icon: MapPin },
-                { label: 'Transparent Guidance', icon: Briefcase },
-              ].map((t, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-center gap-2 rounded-xl bg-white/10 border border-white/15 px-3 py-3 text-sm text-white backdrop-blur"
-                >
-                  <t.icon className="h-4 w-4 text-[#F4C400]" />
-                  <span className="text-white/90">{t.label}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* CTAs */}
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button
-                onClick={() => {
-                  document.getElementById('featured-section')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="rounded-xl bg-[#F4C400] px-5 py-3 text-sm font-semibold text-black shadow hover:opacity-95 transition inline-flex items-center gap-2"
-              >
-                Explore Properties <ArrowRight className="h-4 w-4" />
-              </button>
-
-              <button
-                onClick={() => navigate('/contact')}
-                className="rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/15 transition"
-              >
-                Speak to an Agent
-              </button>
-            </div>
-
-            {/* Search card */}
-            <div className="mt-10 w-full max-w-3xl rounded-2xl bg-white/95 p-4 sm:p-5 shadow-2xl backdrop-blur border border-black/5">
-              <div className="flex items-center justify-between gap-4 mb-4">
-                <div>
-                  <p className="text-sm font-semibold text-dark">Quick Property Search</p>
-                  <p className="text-xs text-grayText">
-                    Filter by category, location, bedrooms and budget.
-                  </p>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 items-end">
-                <div>
-                  <label className="block text-xs font-semibold text-gray-600 mb-2">
-                    Looking For
-                  </label>
-                  <select
-                    value={type}
-                    onChange={(e) => setType(e.target.value)}
-                    className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
-                  >
-                    <option value="any">Any</option>
-                    <option value="buy_build">Buy & Build</option>
-                    <option value="buy_hold">Buy & Hold</option>
-                    <option value="move_in">Buy & Move In</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-gray-600 mb-2">
-                    Location
-                  </label>
-                  <select
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
-                  >
-                    <option value="any">All Cities</option>
-                    <option value="portharcourt">Port Harcourt</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-gray-600 mb-2">
-                    Bedrooms
-                  </label>
-                  <select
-                    value={beds}
-                    onChange={(e) => setBeds(e.target.value)}
-                    className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
-                  >
-                    <option value="any">Any</option>
-                    {[...Array(11).keys()].map((n) => (
-                      <option key={n} value={n.toString()}>
-                        {n}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-semibold text-gray-600 mb-2">
-                    Budget
-                  </label>
-                  <select
-                    value={budget}
-                    onChange={(e) => setBudget(e.target.value)}
-                    className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
-                  >
-                    <option value="any">Any</option>
-                    <option value="1.5m">1.5M</option>
-                    <option value="5m">5M</option>
-                    <option value="12m">12M</option>
-                    <option value="18m">18M</option>
-                    <option value="90m">90M</option>
-                    <option value="120m">120M</option>
-                  </select>
-                </div>
-
-                <div>
-                  <button
-                    onClick={handleSearch}
-                    className="w-full rounded-xl bg-black px-4 py-3 text-sm font-semibold text-white hover:opacity-95 transition flex justify-center items-center"
-                    disabled={loading}
-                  >
-                    {loading ? (
-                      <span className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    ) : (
-                      'Search'
-                    )}
-                  </button>
-                </div>
-              </div>
-
-              <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-gray-600">
-                <span className="inline-flex items-center gap-1">
-                  <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
-                  Verified estates only
-                </span>
-                <span className="inline-flex items-center gap-1">
-                  <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
-                  Clear pricing & documentation
-                </span>
-                <span className="inline-flex items-center gap-1">
-                  <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
-                  Agent support from inquiry to closing
-                </span>
-              </div>
-            </div>
+      {/* trust bullets */}
+      <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+        {[
+          { label: 'Verified Documentation', icon: ShieldCheck },
+          { label: 'Prime Locations', icon: MapPin },
+          { label: 'Transparent Guidance', icon: Briefcase },
+        ].map((t, idx) => (
+          <div
+            key={idx}
+            className="flex items-center gap-2 rounded-xl bg-white/10 border border-white/15 px-3 py-3 text-sm text-white backdrop-blur"
+          >
+            <t.icon className="h-4 w-4 text-[#F4C400]" />
+            <span className="text-white/90">{t.label}</span>
           </div>
+        ))}
+      </div>
 
-          {/* quick stats band */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {[
-              { k: '100%', v: 'Verification First', d: 'Every listing is screened before publication.' },
-              { k: 'Port Harcourt', v: 'Strategic Locations', d: 'Estates positioned for growth and access.' },
-              { k: 'Guided', v: 'End-to-End Support', d: 'From selection to documentation and closing.' },
-            ].map((s, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl bg-white/10 border border-white/15 backdrop-blur p-5 text-white"
-              >
-                <p className="text-sm text-white/80">{s.k}</p>
-                <p className="mt-1 text-lg font-semibold">{s.v}</p>
-                <p className="mt-1 text-sm text-white/80 leading-relaxed">{s.d}</p>
-              </div>
-            ))}
+      {/* CTAs */}
+      <div className="mt-8 flex flex-wrap gap-3">
+        <button
+          onClick={() => {
+            document.getElementById('featured-section')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="rounded-xl bg-[#F4C400] px-5 py-3 text-sm font-semibold text-black shadow hover:opacity-95 transition inline-flex items-center gap-2"
+        >
+          Explore Properties <ArrowRight className="h-4 w-4" />
+        </button>
+
+        <button
+          onClick={() => navigate('/contact')}
+          className="rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/15 transition"
+        >
+          Speak to an Agent
+        </button>
+      </div>
+    </div>
+
+    {/* ✅ Search card (NOW truly centered in the hero) */}
+    <div className="mt-10 flex justify-center">
+      <div className="w-full max-w-3xl rounded-2xl bg-white/95 p-4 sm:p-5 shadow-2xl backdrop-blur border border-black/5">
+        <div className="flex items-center justify-between gap-4 mb-4">
+          <div>
+            <p className="text-sm font-semibold text-dark">Quick Property Search</p>
+            <p className="text-xs text-grayText">
+              Filter by category, location, bedrooms and budget.
+            </p>
           </div>
         </div>
-      </section>
+
+        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 items-end">
+          <div>
+            <label className="block text-xs font-semibold text-gray-600 mb-2">
+              Looking For
+            </label>
+            <select
+              value={type}
+              onChange={(e) => setType(e.target.value)}
+              className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
+            >
+              <option value="any">Any</option>
+              <option value="buy_build">Buy & Build</option>
+              <option value="buy_hold">Buy & Hold</option>
+              <option value="move_in">Buy & Move In</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-gray-600 mb-2">
+              Location
+            </label>
+            <select
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
+            >
+              <option value="any">All Cities</option>
+              <option value="portharcourt">Port Harcourt</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-gray-600 mb-2">
+              Bedrooms
+            </label>
+            <select
+              value={beds}
+              onChange={(e) => setBeds(e.target.value)}
+              className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
+            >
+              <option value="any">Any</option>
+              {[...Array(11).keys()].map((n) => (
+                <option key={n} value={n.toString()}>
+                  {n}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-gray-600 mb-2">
+              Budget
+            </label>
+            <select
+              value={budget}
+              onChange={(e) => setBudget(e.target.value)}
+              className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
+            >
+              <option value="any">Any</option>
+              <option value="1.5m">1.5M</option>
+              <option value="5m">5M</option>
+              <option value="12m">12M</option>
+              <option value="18m">18M</option>
+              <option value="90m">90M</option>
+              <option value="120m">120M</option>
+            </select>
+          </div>
+
+          <div>
+            <button
+              onClick={handleSearch}
+              className="w-full rounded-xl bg-black px-4 py-3 text-sm font-semibold text-white hover:opacity-95 transition flex justify-center items-center"
+              disabled={loading}
+            >
+              {loading ? (
+                <span className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              ) : (
+                'Search'
+              )}
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-gray-600">
+          <span className="inline-flex items-center gap-1">
+            <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
+            Verified estates only
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
+            Clear pricing & documentation
+          </span>
+          <span className="inline-flex items-center gap-1">
+            <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
+            Agent support from inquiry to closing
+          </span>
+        </div>
+      </div>
+    </div>
+
+    {/* quick stats band (unchanged) */}
+    <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+      {[
+        { k: '100%', v: 'Verification First', d: 'Every listing is screened before publication.' },
+        { k: 'Port Harcourt', v: 'Strategic Locations', d: 'Estates positioned for growth and access.' },
+        { k: 'Guided', v: 'End-to-End Support', d: 'From selection to documentation and closing.' },
+      ].map((s, idx) => (
+        <div
+          key={idx}
+          className="rounded-2xl bg-white/10 border border-white/15 backdrop-blur p-5 text-white"
+        >
+          <p className="text-sm text-white/80">{s.k}</p>
+          <p className="mt-1 text-lg font-semibold">{s.v}</p>
+          <p className="mt-1 text-sm text-white/80 leading-relaxed">{s.d}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
 
      {/* =============== FEATURED LISTINGS (4 PREMIUM CARDS) =============== */}
-<section id="featured-section" className="py-18 sm:py-20">
+<section id="featured-section" className="py-18 sm:py-20 ">
   <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
     <div className="text-center mb-12">
@@ -631,7 +633,7 @@ const Home = () => {
             <div>
               <h2 className="text-2xl sm:text-3xl font-bold text-dark">Meet Our Agents</h2>
               <p className="mt-2 text-grayText max-w-2xl leading-relaxed">
-                Get support from professionals who understand the market and can guide your decision.
+                Our experienced agents are here to guide you through every step of finding, buying, or investing in your perfect property.
               </p>
             </div>
             <button
@@ -676,22 +678,22 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                text: 'The process was straightforward, and the documentation steps were clearly explained. I felt confident throughout.',
-                name: 'Aisha N.',
+                text: 'They explained every cost upfront and kept their word. The staff were professional and friendly, and my land documents came faster than expected. I’ve already referred two of my friends!',
+                name: 'Chika Onuoha',
                 role: 'Client',
-                avatar: '/assets/placeholders/testimonial1.jpg',
+                avatar: '/src/assets/placeholders/testimonial1.jpeg',
               },
               {
-                text: 'Professional team. They helped me shortlist options based on my budget and long-term plan. Smooth experience.',
-                name: 'Emeka O.',
+                text: 'I couldn’t be in Port Harcourt physically, but Dolu Properties handled the process for me. They shared video updates, receipts, and photos every step of the way. I got my documents without stress...100% trustworthy team.',
+                name: 'Mrs Gift Nwafor.',
                 role: 'Investor',
-                avatar: '/assets/placeholders/testimonial2.jpg',
+                avatar: '/src/assets/placeholders/testimonial2.jpeg',
               },
               {
-                text: 'Genuine listings and honest guidance. I appreciate how transparent everything was from start to finish.',
-                name: 'Chidinma U.',
-                role: 'Homebuyer',
-                avatar: '/assets/placeholders/testimonial3.jpg',
+                text: 'Before buying, their agent walked me through how to confirm property authenticity and legal details. I really appreciated that. You can tell they care more about people than just making sales.',
+                name: 'Adesuwa Olumide',
+                role: 'Client',
+                avatar: '/src/assets/placeholders/testimonial3.jpeg',
               },
             ].map((t, idx) => (
               <div key={idx} className="bg-gray-50 rounded-2xl p-6 shadow-sm border border-black/5">
