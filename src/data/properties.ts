@@ -11,6 +11,9 @@ import {
   oakridgeImg,
   villa1Img,
   villa2Img,
+  primebrook,
+  oliveestate,
+  armyrange,
 } from '../assets';
 
 export type PropertyCategory = 'buy_build' | 'buy_hold' | 'move_in';
@@ -61,7 +64,7 @@ const mainProperties: Property[] = [
     locationArea: 'Elele',
     bedrooms: null,
     priceLabel: '₦1.5M',
-    gallery: [villa1Img],
+    gallery: [oliveestate],
     tagline: 'Well-planned estate with accessibility',
     highlights: [
       'Prime location in Elele',
@@ -95,7 +98,7 @@ const mainProperties: Property[] = [
     locationArea: 'Eneka – Igwuruta',
     bedrooms: null,
     priceLabel: '₦15,000,000',
-    gallery: [oakridgeImg],
+    gallery: [armyrange],
     tagline: 'Flexible payment investment opportunity',
     highlights: [
       '1000SQM (2 plots)',
@@ -129,7 +132,7 @@ const mainProperties: Property[] = [
     locationArea: 'Stadium Road',
     bedrooms: null,
     priceLabel: '₦75,000,000',
-    gallery: [villa2Img],
+    gallery: [primebrook],
     tagline: 'Premium investment on Stadium Road',
     highlights: [
       'Strategic location',

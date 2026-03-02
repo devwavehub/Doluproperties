@@ -173,13 +173,13 @@ const ArmyRange: React.FC = () => {
         </div>
       </section>
 
-      {/* Sticky mobile CTA */}
+      {/* Sticky mobile CTA
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 md:hidden">
         <div className="bg-white rounded-full shadow-lg px-4 py-2 flex items-center gap-3">
           <a href="https://wa.me/2347012345678" className="bg-lime-600 text-white px-4 py-2 rounded-full">WhatsApp</a>
           <a href="tel:+2347012345678" className="bg-primary text-dark px-4 py-2 rounded-full">Call</a>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

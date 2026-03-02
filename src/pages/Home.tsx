@@ -10,6 +10,10 @@ import 'swiper/css/pagination';
 
 import { galleryImages } from '../data/galleryImages';
 
+import testimonial1 from '../assets/placeholders/testimonial1.jpg';
+import testimonial2 from '../assets/placeholders/testimonial2.jpg';
+import testimonial3 from '../assets/placeholders/testimonial3.jpg';
+
 import {
   ShieldCheck,
   MapPin,
@@ -48,16 +52,6 @@ const Home = () => {
     }, 400);
   };
 
-  // const featuredLeft = useMemo(
-  //   () => properties.filter((p) => ['beulah-layout', 'villa-alora'].includes(p.slug)),
-  //   []
-  // );
-
-  // const featuredSlider = useMemo(
-  //   () => properties.filter((p) => !['beulah-layout', 'villa-alora'].includes(p.slug)),
-  //   []
-  // );
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -65,271 +59,260 @@ const Home = () => {
       transition={{ duration: 0.6 }}
       className="w-full"
     >
-{/* =============== HERO + SEARCH =============== */}
-<section className="relative w-full min-h-[100vh] overflow-hidden">
-  <img
-    src={villaAlora2}
-    alt="Dolu Properties"
-    className="absolute inset-0 h-full w-full object-cover"
-  />
+      {/* =============== HERO + SEARCH =============== */}
+      <section className="relative w-full min-h-[100vh] overflow-hidden">
+        <img
+          src={villaAlora2}
+          alt="Dolu Properties"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-  {/* overlays */}
-  <div className="absolute inset-0 bg-[#F4C400]/15" />
-  <div className="absolute inset-0 bg-black/45" />
+        {/* overlays */}
+        <div className="absolute inset-0 bg-[#F4C400]/15" />
+        <div className="absolute inset-0 bg-black/45" />
 
-  <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-10">
-    {/* LEFT CONTENT (unchanged) */}
-    <div className="max-w-3xl">
-      {/* badge */}
-      <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm text-white backdrop-blur border border-white/15">
-        <BadgeCheck className="h-4 w-4 text-[#F4C400]" />
-        Rivers State Real Estate • Verified Listings
-      </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-10">
+          {/* LEFT CONTENT (unchanged) */}
+          <div className="max-w-3xl">
+            {/* badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm text-white backdrop-blur border border-white/15">
+              <BadgeCheck className="h-4 w-4 text-[#F4C400]" />
+              Rivers State Real Estate • Verified Listings
+            </div>
 
-      {/* headline */}
-      <h1 className="mt-6 text-4xl sm:text-6xl font-extrabold tracking-tight text-white">
-        Welcome To{' '}
-        <span className="text-[#F4C400]">Dolu Properties</span>
-      </h1>
+            {/* headline */}
+            <h1 className="mt-6 text-4xl sm:text-6xl font-extrabold tracking-tight text-white">
+              Welcome To{' '}
+              <span className="text-[#F4C400]">Dolu Properties</span>
+            </h1>
 
-      {/* subtext */}
-      <p className="mt-5 text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
-        Invest smart with Dolu Properties. Our verified lands in Port Harcourt offer security,
-        appreciation, and peace of mind guaranteed.
-      </p>
+            {/* subtext */}
+            <p className="mt-5 text-base sm:text-lg text-white/90 max-w-2xl leading-relaxed">
+              Invest smart with Dolu Properties. Our verified lands in Port Harcourt offer security,
+              appreciation, and peace of mind guaranteed.
+            </p>
 
-      {/* trust bullets */}
-      <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
-        {[
-          { label: 'Verified Documentation', icon: ShieldCheck },
-          { label: 'Prime Locations', icon: MapPin },
-          { label: 'Transparent Guidance', icon: Briefcase },
-        ].map((t, idx) => (
-          <div
-            key={idx}
-            className="flex items-center gap-2 rounded-xl bg-white/10 border border-white/15 px-3 py-3 text-sm text-white backdrop-blur"
-          >
-            <t.icon className="h-4 w-4 text-[#F4C400]" />
-            <span className="text-white/90">{t.label}</span>
+            {/* trust bullets */}
+            <div className="mt-5 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl">
+              {[
+                { label: 'Verified Documentation', icon: ShieldCheck },
+                { label: 'Prime Locations', icon: MapPin },
+                { label: 'Transparent Guidance', icon: Briefcase },
+              ].map((t, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-2 rounded-xl bg-white/10 border border-white/15 px-3 py-3 text-sm text-white backdrop-blur"
+                >
+                  <t.icon className="h-4 w-4 text-[#F4C400]" />
+                  <span className="text-white/90">{t.label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-8 flex flex-wrap gap-3">
+              <button
+                onClick={() => {
+                  document.getElementById('featured-section')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="rounded-xl bg-[#F4C400] px-5 py-3 text-sm font-semibold text-black shadow hover:opacity-95 transition inline-flex items-center gap-2"
+              >
+                Explore Properties <ArrowRight className="h-4 w-4" />
+              </button>
+
+              <button
+                onClick={() => navigate('/contact')}
+                className="rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/15 transition"
+              >
+                Speak to an Agent
+              </button>
+            </div>
           </div>
-        ))}
-      </div>
 
-      {/* CTAs */}
-      <div className="mt-8 flex flex-wrap gap-3">
-        <button
-          onClick={() => {
-            document.getElementById('featured-section')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="rounded-xl bg-[#F4C400] px-5 py-3 text-sm font-semibold text-black shadow hover:opacity-95 transition inline-flex items-center gap-2"
-        >
-          Explore Properties <ArrowRight className="h-4 w-4" />
-        </button>
+          {/* ✅ Search card (centered) */}
+          <div className="mt-10 flex justify-center">
+            <div className="w-full max-w-3xl rounded-2xl bg-white/95 p-4 sm:p-5 shadow-2xl backdrop-blur border border-black/5">
+              <div className="flex items-center justify-between gap-4 mb-4">
+                <div>
+                  <p className="text-sm font-semibold text-dark">Quick Property Search</p>
+                  <p className="text-xs text-grayText">
+                    Filter by category, location, bedrooms and budget.
+                  </p>
+                </div>
+              </div>
 
-        <button
-          onClick={() => navigate('/contact')}
-          className="rounded-xl border border-white/30 bg-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur hover:bg-white/15 transition"
-        >
-          Speak to an Agent
-        </button>
-      </div>
-    </div>
+              <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 items-end">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-2">
+                    Looking For
+                  </label>
+                  <select
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                    className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
+                  >
+                    <option value="any">Any</option>
+                    <option value="buy_build">Buy & Build</option>
+                    <option value="buy_hold">Buy & Hold</option>
+                    <option value="move_in">Buy & Move In</option>
+                  </select>
+                </div>
 
-    {/* ✅ Search card (NOW truly centered in the hero) */}
-    <div className="mt-10 flex justify-center">
-      <div className="w-full max-w-3xl rounded-2xl bg-white/95 p-4 sm:p-5 shadow-2xl backdrop-blur border border-black/5">
-        <div className="flex items-center justify-between gap-4 mb-4">
-          <div>
-            <p className="text-sm font-semibold text-dark">Quick Property Search</p>
-            <p className="text-xs text-grayText">
-              Filter by category, location, bedrooms and budget.
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-2">
+                    Location
+                  </label>
+                  <select
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
+                  >
+                    <option value="any">All Cities</option>
+                    <option value="portharcourt">Port Harcourt</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-2">
+                    Bedrooms
+                  </label>
+                  <select
+                    value={beds}
+                    onChange={(e) => setBeds(e.target.value)}
+                    className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
+                  >
+                    <option value="any">Any</option>
+                    {[...Array(11).keys()].map((n) => (
+                      <option key={n} value={n.toString()}>
+                        {n}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-gray-600 mb-2">
+                    Budget
+                  </label>
+                  <select
+                    value={budget}
+                    onChange={(e) => setBudget(e.target.value)}
+                    className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
+                  >
+                    <option value="any">Any</option>
+                    <option value="1.5m">1.5M</option>
+                    <option value="5m">5M</option>
+                    <option value="12m">12M</option>
+                    <option value="18m">18M</option>
+                    <option value="90m">90M</option>
+                    <option value="120m">120M</option>
+                  </select>
+                </div>
+
+                <div>
+                  <button
+                    onClick={handleSearch}
+                    className="w-full rounded-xl bg-black px-4 py-3 text-sm font-semibold text-white hover:opacity-95 transition flex justify-center items-center"
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <span className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      'Search'
+                    )}
+                  </button>
+                </div>
+              </div>
+
+              <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-gray-600">
+                <span className="inline-flex items-center gap-1">
+                  <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
+                  Verified estates only
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
+                  Clear pricing & documentation
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
+                  Agent support from inquiry to closing
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* quick stats band (unchanged) */}
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { k: '100%', v: 'Verification First', d: 'Every listing is screened before publication.' },
+              { k: 'Port Harcourt', v: 'Strategic Locations', d: 'Estates positioned for growth and access.' },
+              { k: 'Guided', v: 'End-to-End Support', d: 'From selection to documentation and closing.' },
+            ].map((s, idx) => (
+              <div
+                key={idx}
+                className="rounded-2xl bg-white/10 border border-white/15 backdrop-blur p-5 text-white"
+              >
+                <p className="text-sm text-white/80">{s.k}</p>
+                <p className="mt-1 text-lg font-semibold">{s.v}</p>
+                <p className="mt-1 text-sm text-white/80 leading-relaxed">{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ mobile spacing fix: change py-18 -> py-16 on small, keep your desktop spacing */}
+      {/* =============== FEATURED LISTINGS (4 PREMIUM CARDS) =============== */}
+      <section id="featured-section" className="pt-14 pb-16 sm:pt-20 sm:pb-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-dark">Featured Opportunities</h2>
+            <p className="mt-3 text-grayText max-w-2xl mx-auto leading-relaxed">
+              Carefully selected estates with strong location value,
+              clear documentation, and flexible options for buyers
+              and investors.
             </p>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 items-end">
-          <div>
-            <label className="block text-xs font-semibold text-gray-600 mb-2">
-              Looking For
-            </label>
-            <select
-              value={type}
-              onChange={(e) => setType(e.target.value)}
-              className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
-            >
-              <option value="any">Any</option>
-              <option value="buy_build">Buy & Build</option>
-              <option value="buy_hold">Buy & Hold</option>
-              <option value="move_in">Buy & Move In</option>
-            </select>
-          </div>
+          {/* 4 GRID LAYOUT */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {properties.slice(0, 4).map((p) => (
+              <div
+                key={p.id}
+                onClick={() => navigate(`/properties/${p.slug}`)}
+                className="cursor-pointer relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-[380px] sm:h-[420px]"
+              >
+                <img
+                  src={p.gallery[0]}
+                  alt={p.name}
+                  className="w-full h-full object-cover"
+                />
 
-          <div>
-            <label className="block text-xs font-semibold text-gray-600 mb-2">
-              Location
-            </label>
-            <select
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
-            >
-              <option value="any">All Cities</option>
-              <option value="portharcourt">Port Harcourt</option>
-            </select>
-          </div>
+                {/* ✅ add FEATURED tag */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="inline-flex items-center rounded-full bg-[#F4C400] px-3 py-1 text-[11px] font-extrabold text-black shadow">
+                    FEATURED
+                  </span>
+                </div>
 
-          <div>
-            <label className="block text-xs font-semibold text-gray-600 mb-2">
-              Bedrooms
-            </label>
-            <select
-              value={beds}
-              onChange={(e) => setBeds(e.target.value)}
-              className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
-            >
-              <option value="any">Any</option>
-              {[...Array(11).keys()].map((n) => (
-                <option key={n} value={n.toString()}>
-                  {n}
-                </option>
-              ))}
-            </select>
-          </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
 
-          <div>
-            <label className="block text-xs font-semibold text-gray-600 mb-2">
-              Budget
-            </label>
-            <select
-              value={budget}
-              onChange={(e) => setBudget(e.target.value)}
-              className="w-full rounded-xl border border-gray-200 bg-white px-3 py-3 text-sm outline-none focus:ring-2 focus:ring-[#F4C400]/60"
-            >
-              <option value="any">Any</option>
-              <option value="1.5m">1.5M</option>
-              <option value="5m">5M</option>
-              <option value="12m">12M</option>
-              <option value="18m">18M</option>
-              <option value="90m">90M</option>
-              <option value="120m">120M</option>
-            </select>
-          </div>
+                <div className="absolute bottom-0 left-0 w-full p-5">
+                  <span className="text-xs text-white/80 uppercase tracking-wide">
+                    {p.category.replace('_', ' ')}
+                  </span>
 
-          <div>
-            <button
-              onClick={handleSearch}
-              className="w-full rounded-xl bg-black px-4 py-3 text-sm font-semibold text-white hover:opacity-95 transition flex justify-center items-center"
-              disabled={loading}
-            >
-              {loading ? (
-                <span className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              ) : (
-                'Search'
-              )}
-            </button>
+                  <h3 className="text-lg font-semibold text-white mt-1">{p.name}</h3>
+                  <span className="text-sm text-white/85">{p.priceLabel}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+      </section>
 
-        <div className="mt-4 flex flex-wrap items-center gap-3 text-xs text-gray-600">
-          <span className="inline-flex items-center gap-1">
-            <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
-            Verified estates only
-          </span>
-          <span className="inline-flex items-center gap-1">
-            <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
-            Clear pricing & documentation
-          </span>
-          <span className="inline-flex items-center gap-1">
-            <CheckCircle2 className="h-4 w-4 text-[#F4C400]" />
-            Agent support from inquiry to closing
-          </span>
-        </div>
-      </div>
-    </div>
-
-    {/* quick stats band (unchanged) */}
-    <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
-      {[
-        { k: '100%', v: 'Verification First', d: 'Every listing is screened before publication.' },
-        { k: 'Port Harcourt', v: 'Strategic Locations', d: 'Estates positioned for growth and access.' },
-        { k: 'Guided', v: 'End-to-End Support', d: 'From selection to documentation and closing.' },
-      ].map((s, idx) => (
-        <div
-          key={idx}
-          className="rounded-2xl bg-white/10 border border-white/15 backdrop-blur p-5 text-white"
-        >
-          <p className="text-sm text-white/80">{s.k}</p>
-          <p className="mt-1 text-lg font-semibold">{s.v}</p>
-          <p className="mt-1 text-sm text-white/80 leading-relaxed">{s.d}</p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-
-     {/* =============== FEATURED LISTINGS (4 PREMIUM CARDS) =============== */}
-<section id="featured-section" className="py-18 sm:py-20 ">
-  <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-
-    <div className="text-center mb-12">
-      <h2 className="text-3xl font-bold text-dark">
-        Featured Opportunities
-      </h2>
-
-      <p className="mt-3 text-grayText max-w-2xl mx-auto leading-relaxed">
-        Carefully selected estates with strong location value,
-        clear documentation, and flexible options for buyers
-        and investors.
-      </p>
-    </div>
-
-
-    {/* 4 GRID LAYOUT */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      {properties.slice(0,4).map((p) => (
-
-        <div
-          key={p.id}
-          onClick={() => navigate(`/properties/${p.slug}`)}
-          className="cursor-pointer relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-[380px] sm:h-[420px]"
-        >
-
-          <img
-            src={p.gallery[0]}
-            alt={p.name}
-            className="w-full h-full object-cover"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-
-          <div className="absolute bottom-0 left-0 w-full p-5">
-
-            <span className="text-xs text-white/80 uppercase tracking-wide">
-              {p.category.replace('_', ' ')}
-            </span>
-
-            <h3 className="text-lg font-semibold text-white mt-1">
-              {p.name}
-            </h3>
-
-            <span className="text-sm text-white/85">
-              {p.priceLabel}
-            </span>
-
-          </div>
-
-        </div>
-
-      ))}
-
-    </div>
-
-  </div>
-</section>
-
-      {/* =============== BUY & BUILD (BIGGER IMAGES) =============== */}
-      <section className="py-18 sm:py-20 bg-white">
+      {/* =============== BUY & BUILD (MAKE IMAGE FULL LIKE FEATURED) =============== */}
+      <section className="pt-14 pb-16 sm:pt-20 sm:pb-20 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
             <div>
@@ -348,6 +331,7 @@ const Home = () => {
             </button>
           </div>
 
+          {/* ✅ SAME STYLE AS FEATURED: FULL IMAGE CARD + OVERLAY TEXT */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {properties
               .filter((p) => p.category === 'buy_build')
@@ -356,13 +340,26 @@ const Home = () => {
                 <div
                   key={p.id}
                   onClick={() => navigate(`/properties/${p.slug}`)}
-                  className="cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white border border-black/5"
+                  className="cursor-pointer relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-[360px] sm:h-[420px]"
                 >
-                  <img src={p.gallery[0]} alt={p.name} className="w-full h-[300px] object-cover" />
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold text-dark">{p.name}</h3>
-                    <p className="text-sm text-grayText mt-1">{p.locationArea}</p>
-                    <p className="text-sm text-primary mt-2 font-semibold">{p.priceLabel}</p>
+                  <img
+                    src={p.gallery[0]}
+                    alt={p.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+                  <div className="absolute bottom-0 left-0 w-full p-5">
+                    <span className="text-xs text-white/80 uppercase tracking-wide">
+                      {p.category.replace('_', ' ')}
+                    </span>
+                    <h3 className="text-lg font-semibold text-white mt-1">{p.name}</h3>
+                    <p className="text-sm text-white/85 mt-1">{p.locationArea}</p>
+                    <p className="text-sm text-[#F4C400] mt-2 font-extrabold">
+                      {p.priceLabel}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -370,55 +367,64 @@ const Home = () => {
         </div>
       </section>
 
-      {/* =============== BUY & HOLD (3 PREMIUM CARDS) =============== */}
-<section className="py-18 sm:py-20 bg-bgLight">
-  <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
-      <div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-dark">Buy & Hold</h2>
-        <p className="mt-2 text-grayText max-w-2xl leading-relaxed">
-          Secure land in strategic areas and hold for appreciation. A smart path for
-          long-term wealth building and resale advantage.
-        </p>
-      </div>
-
-      <button
-        onClick={() => navigate('/search?type=buy_hold')}
-        className="rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold hover:bg-black/5 transition"
-      >
-        View Buy & Hold
-      </button>
-    </div>
-
-    {/* 3 GRID CARDS */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {properties
-        .filter((p) => p.category === 'buy_hold')
-        .slice(0, 3)
-        .map((p) => (
-          <div
-            key={p.id}
-            onClick={() => navigate(`/properties/${p.slug}`)}
-            className="cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow bg-white border border-black/5"
-          >
-            <img
-              src={p.gallery[0]}
-              alt={p.name}
-              className="w-full h-[320px] object-cover"
-            />
-            <div className="p-5">
-              <h3 className="text-lg font-semibold text-dark">{p.name}</h3>
-              <p className="text-sm text-grayText mt-1">{p.locationArea}</p>
-              <p className="text-sm text-primary mt-2 font-semibold">{p.priceLabel}</p>
+      {/* =============== BUY & HOLD (MAKE IMAGE FULL LIKE FEATURED) =============== */}
+      <section className="pt-14 pb-16 sm:pt-20 sm:pb-20 bg-bgLight">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-dark">Buy & Hold</h2>
+              <p className="mt-2 text-grayText max-w-2xl leading-relaxed">
+                Secure land in strategic areas and hold for appreciation. A smart path for
+                long-term wealth building and resale advantage.
+              </p>
             </div>
+
+            <button
+              onClick={() => navigate('/search?type=buy_hold')}
+              className="rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold hover:bg-black/5 transition"
+            >
+              View Buy & Hold
+            </button>
           </div>
-        ))}
-    </div>
-  </div>
-</section>
+
+          {/* ✅ SAME STYLE AS FEATURED: FULL IMAGE CARD + OVERLAY TEXT */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {properties
+              .filter((p) => p.category === 'buy_hold')
+              .slice(0, 3)
+              .map((p) => (
+                <div
+                  key={p.id}
+                  onClick={() => navigate(`/properties/${p.slug}`)}
+                  className="cursor-pointer relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-[360px] sm:h-[420px]"
+                >
+                  <img
+                    src={p.gallery[0]}
+                    alt={p.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+                  <div className="absolute bottom-0 left-0 w-full p-5">
+                    <span className="text-xs text-white/80 uppercase tracking-wide">
+                      {p.category.replace('_', ' ')}
+                    </span>
+                    <h3 className="text-lg font-semibold text-white mt-1">{p.name}</h3>
+                    <p className="text-sm text-white/85 mt-1">{p.locationArea}</p>
+                    <p className="text-sm text-[#F4C400] mt-2 font-extrabold">
+                      {p.priceLabel}
+                    </p>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      </section>
 
       {/* =============== WHY CHOOSE DOLU (PRO) =============== */}
-      <section className="py-18 sm:py-20 relative">
+      <section className="pt-14 pb-16 sm:pt-20 sm:pb-20 relative">
         <div className="absolute inset-0 bg-gradient-to-tr from-gray-50 to-gray-100 -z-10" />
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
@@ -491,7 +497,7 @@ const Home = () => {
       </section>
 
       {/* =============== HOW IT WORKS =============== */}
-      <section className="py-18 sm:py-20 bg-white">
+      <section className="pt-14 pb-16 sm:pt-20 sm:pb-20 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-dark">How It Works</h2>
@@ -528,60 +534,44 @@ const Home = () => {
         </div>
       </section>
 
-      {/* =============== GALLERY (SLIDER + DOTS) =============== */}
-<section className="py-18 sm:py-20 bg-bgLight">
-  <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-    {/* centered heading */}
-    <div className="text-center mb-12">
-      <h2 className="text-2xl sm:text-3xl font-bold text-dark">Gallery</h2>
-      <p className="mt-2 text-grayText max-w-2xl mx-auto leading-relaxed">
-        A quick look at some of our estates, environments, and property moments.
-      </p>
-    </div>
-
-    {/* slider */}
-    <div className="rounded-3xl overflow-hidden border border-black/5 shadow-sm bg-white pb-6">
-      <Swiper
-        modules={[Autoplay, Pagination]}
-        autoplay={{ delay: 3200, disableOnInteraction: false }}
-        pagination={{ clickable: true }}
-        loop={true}
-        spaceBetween={16}
-        slidesPerView={1}
-        breakpoints={{
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-        className="w-full"
-      >
-        {(galleryImages.length ? galleryImages : properties.slice(0, 6).map(p => p.gallery[0])).map((img, idx) => (
-          <SwiperSlide key={idx}>
-            <div className="p-4">
-              <div className="rounded-2xl overflow-hidden bg-bgLight border border-black/5">
-                <img
-                  src={img}
-                  alt={`Gallery ${idx + 1}`}
-                  className="w-full h-[260px] sm:h-[300px] object-cover"
-                  loading="lazy"
-                />
-              </div>
+      {/* =============== AGENTS =============== */}
+      <section className="pt-14 pb-16 sm:pt-20 sm:pb-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-dark">Meet Our Agents</h2>
+              <p className="mt-2 text-grayText max-w-2xl leading-relaxed">
+                Our experienced agents are here to guide you through every step of finding, buying, or investing in your perfect property.
+              </p>
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+            <button
+              onClick={() => navigate('/about/team')}
+              className="rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold hover:bg-black/5 transition"
+            >
+              View Team
+            </button>
+          </div>
 
-    {/* optional button to full gallery */}
-    <div className="mt-8 flex justify-center">
-      <button
-        onClick={() => navigate('/gallery')}
-        className="rounded-xl bg-black text-white px-6 py-3 text-sm font-semibold hover:opacity-95 transition"
-      >
-        View Full Gallery
-      </button>
-    </div>
-  </div>
-</section>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {agents.slice(0, 3).map((a) => (
+              <div
+                key={a.slug}
+                className="bg-white rounded-2xl shadow-sm hover:shadow-md transition p-6 border border-black/5 flex flex-col items-center text-center"
+              >
+                <img src={a.photo} alt={a.name} className="w-24 h-24 rounded-full object-cover mb-4" />
+                <h3 className="text-lg font-semibold text-dark">{a.name}</h3>
+                <p className="text-sm text-grayText mb-4">{a.title}</p>
+                <button
+                  onClick={() => navigate(`/team/${a.slug}`)}
+                  className="text-primary font-semibold text-sm hover:underline"
+                >
+                  View Profile
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* =============== CTA STRIP =============== */}
       <section className="py-14 bg-black">
@@ -626,90 +616,135 @@ const Home = () => {
         </div>
       </section>
 
-      {/* =============== AGENTS =============== */}
-      <section className="py-18 sm:py-20">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
-            <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-dark">Meet Our Agents</h2>
-              <p className="mt-2 text-grayText max-w-2xl leading-relaxed">
-                Our experienced agents are here to guide you through every step of finding, buying, or investing in your perfect property.
-              </p>
-            </div>
-            <button
-              onClick={() => navigate('/team')}
-              className="rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold hover:bg-black/5 transition"
-            >
-              View Team
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {agents.slice(0, 3).map((a) => (
-              <div
-                key={a.slug}
-                className="bg-white rounded-2xl shadow-sm hover:shadow-md transition p-6 border border-black/5 flex flex-col items-center text-center"
-              >
-                <img src={a.photo} alt={a.name} className="w-24 h-24 rounded-full object-cover mb-4" />
-                <h3 className="text-lg font-semibold text-dark">{a.name}</h3>
-                <p className="text-sm text-grayText mb-4">{a.title}</p>
-                <button
-                  onClick={() => navigate(`/team/${a.slug}`)}
-                  className="text-primary font-semibold text-sm hover:underline"
-                >
-                  View Profile
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* =============== TESTIMONIALS (polished) =============== */}
-      <section className="py-18 sm:py-20 bg-white">
+      {/* =============== GALLERY (SLIDER + DOTS) =============== */}
+      <section className="pt-14 pb-16 sm:pt-20 sm:pb-20 bg-bgLight">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-dark">Client Feedback</h2>
-            <p className="mt-3 text-grayText max-w-2xl mx-auto leading-relaxed">
-              A few words from clients and investors who completed transactions with our guidance.
+            <h2 className="text-2xl sm:text-3xl font-bold text-dark">Gallery</h2>
+            <p className="mt-2 text-grayText max-w-2xl mx-auto leading-relaxed">
+              A quick look at some of our estates, environments, and property moments.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                text: 'They explained every cost upfront and kept their word. The staff were professional and friendly, and my land documents came faster than expected. I’ve already referred two of my friends!',
-                name: 'Chika Onuoha',
-                role: 'Client',
-                avatar: '/src/assets/placeholders/testimonial1.jpeg',
-              },
-              {
-                text: 'I couldn’t be in Port Harcourt physically, but Dolu Properties handled the process for me. They shared video updates, receipts, and photos every step of the way. I got my documents without stress...100% trustworthy team.',
-                name: 'Mrs Gift Nwafor.',
-                role: 'Investor',
-                avatar: '/src/assets/placeholders/testimonial2.jpeg',
-              },
-              {
-                text: 'Before buying, their agent walked me through how to confirm property authenticity and legal details. I really appreciated that. You can tell they care more about people than just making sales.',
-                name: 'Adesuwa Olumide',
-                role: 'Client',
-                avatar: '/src/assets/placeholders/testimonial3.jpeg',
-              },
-            ].map((t, idx) => (
-              <div key={idx} className="bg-gray-50 rounded-2xl p-6 shadow-sm border border-black/5">
-                <p className="text-sm text-grayText leading-relaxed">“{t.text}”</p>
-                <div className="mt-5 flex items-center gap-3">
-                  <img src={t.avatar} alt={t.name} className="w-10 h-10 rounded-full object-cover" />
-                  <div>
-                    <p className="font-semibold text-dark">{t.name}</p>
-                    <p className="text-xs text-grayText">{t.role}</p>
+          <div className="rounded-3xl overflow-hidden border border-black/5 shadow-sm bg-white pb-6">
+            <Swiper
+              modules={[Autoplay, Pagination]}
+              autoplay={{ delay: 3200, disableOnInteraction: false }}
+              pagination={{ clickable: true }}
+              loop={true}
+              spaceBetween={16}
+              slidesPerView={1}
+              breakpoints={{
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="w-full"
+            >
+              {(galleryImages.length ? galleryImages : properties.slice(0, 6).map(p => p.gallery[0])).map((img, idx) => (
+                <SwiperSlide key={idx}>
+                  <div className="p-4">
+                    <div className="rounded-2xl overflow-hidden bg-bgLight border border-black/5">
+                      <img
+                        src={img}
+                        alt={`Gallery ${idx + 1}`}
+                        className="w-full h-[260px] sm:h-[300px] object-cover"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => navigate('/gallery')}
+              className="rounded-xl bg-black text-white px-6 py-3 text-sm font-semibold hover:opacity-95 transition"
+            >
+              View Full Gallery
+            </button>
           </div>
         </div>
       </section>
+
+      {/* =============== TESTIMONIALS =============== */}
+<section className="pt-14 pb-16 sm:pt-20 sm:pb-20 bg-white">
+  <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div className="text-center mb-12">
+      <h2 className="text-2xl sm:text-3xl font-bold text-dark">
+        Client Feedback
+      </h2>
+
+      <p className="mt-3 text-grayText max-w-2xl mx-auto leading-relaxed">
+        A few words from clients and investors who completed transactions with our guidance.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      {[
+        {
+          text: 'They explained every cost upfront and kept their word. The staff were professional and friendly, and my land documents came faster than expected. I’ve already referred two of my friends!',
+          name: 'Chika Onuoha',
+          role: 'Client',
+          avatar: testimonial1,
+        },
+
+        {
+          text: 'I couldn’t be in Port Harcourt physically, but Dolu Properties handled the process for me. They shared video updates, receipts, and photos every step of the way. I got my documents without stress...100% trustworthy team.',
+          name: 'Mrs Gift Nwafor.',
+          role: 'Investor',
+          avatar: testimonial2,
+        },
+
+        {
+          text: 'Before buying, their agent walked me through how to confirm property authenticity and legal details. I really appreciated that. You can tell they care more about people than just making sales.',
+          name: 'Adesuwa Olumide',
+          role: 'Client',
+          avatar: testimonial3,
+        },
+
+      ].map((t, idx) => (
+
+        <div
+          key={idx}
+          className="bg-gray-50 rounded-2xl p-6 shadow-sm border border-black/5"
+        >
+
+          <p className="text-sm text-grayText leading-relaxed">
+            “{t.text}”
+          </p>
+
+          <div className="mt-5 flex items-center gap-3">
+
+            <img
+              src={t.avatar}
+              alt={t.name}
+              className="w-10 h-10 rounded-full object-cover"
+            />
+
+            <div>
+              <p className="font-semibold text-dark">
+                {t.name}
+              </p>
+
+              <p className="text-xs text-grayText">
+                {t.role}
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </div>
+</section>
     </motion.div>
   );
 };

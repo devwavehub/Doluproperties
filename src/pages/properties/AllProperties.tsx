@@ -189,43 +189,93 @@ const AllProperties = () => {
         </div>
       </section>
 
-      {/* ================= GRID (don’t spoil it) ================= */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* result count */}
-        <div className="flex items-center justify-between mb-6">
-          <p className="text-sm text-grayText">
-            Showing <span className="font-semibold text-dark">{filtered.length}</span> properties
-          </p>
-        </div>
+     {/* ================= GRID (Clean Flyer Style Fixed) ================= */}
+<section className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filtered.map((p) => (
-            <div
-              key={p.id}
-              onClick={() => navigate(`/properties/${p.slug}`)}
-              className="cursor-pointer rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition bg-white border border-black/5"
-            >
-              <div className="relative">
-                <img src={p.gallery[0]} alt={p.name} className="w-full h-[260px] object-cover" />
-                <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
-                  <span className="text-xs text-white/80 capitalize">
-                    {p.category.replace('_', ' ')}
-                  </span>
-                  <h3 className="text-white font-semibold">{p.name}</h3>
-                </div>
-              </div>
+  {/* Result count */}
+  <div className="flex items-center justify-between mb-8">
+    <p className="text-sm text-grayText">
+      Showing <span className="font-semibold text-dark">{filtered.length}</span> properties
+    </p>
+  </div>
 
-              <div className="p-5">
-                <p className="text-sm text-grayText">{p.locationCity}</p>
-                <p className="text-primary font-semibold mt-2">{p.priceLabel}</p>
-                <button className="mt-3 text-sm font-semibold text-primary hover:underline">
-                  View Property →
-                </button>
-              </div>
+  {/* GRID */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    {filtered.map((p) => {
+
+      // ✅ Flyers vs Photos
+      const isPhotoStyle =
+        p.category === 'move_in' ||
+        p.slug === 'villa-alora';
+
+      return (
+
+        <div
+          key={p.id}
+          onClick={() => navigate(`/properties/${p.slug}`)}
+          className="cursor-pointer rounded-3xl overflow-hidden bg-white border border-black/5 shadow-md hover:shadow-xl transition"
+        >
+
+          {/* IMAGE AREA */}
+          <div className="relative bg-[#fffdf2]">
+
+            <div className="w-full h-[380px] sm:h-[420px] flex items-center justify-center">
+
+              <img
+                src={p.gallery[0]}
+                alt={p.name}
+                className={`w-full h-full ${
+                  isPhotoStyle ? "object-cover" : "object-contain"
+                }`}
+                loading="lazy"
+              />
+
             </div>
-          ))}
+
+            {/* Category badge */}
+            <div className="absolute top-4 left-4">
+              <span className="bg-black/75 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                {p.category.replace('_',' ')}
+              </span>
+            </div>
+
+          </div>
+
+
+          {/* TEXT AREA */}
+          <div className="p-5">
+
+            <h3 className="text-lg font-semibold text-dark">
+              {p.name}
+            </h3>
+
+            <p className="text-sm text-grayText mt-1">
+              {p.locationCity || p.locationArea}
+            </p>
+
+            <div className="mt-3 flex items-center justify-between">
+
+              <p className="text-primary font-semibold">
+                {p.priceLabel}
+              </p>
+
+              <span className="text-sm font-semibold text-dark">
+                View →
+              </span>
+
+            </div>
+
+          </div>
+
         </div>
-      </section>
+
+      );
+    })}
+
+  </div>
+
+</section>
     </motion.div>
   );
 };

@@ -1,39 +1,89 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ContactBar from '../../components/ContactBar';
-import oakridgeImg from '../../assets/OAKRIDGE CITY ESTATE.jpg';
 import gallery from '../../gallery/oakridge-city';
+
+// ✅ Actual flyer image (contains N5M, 460SQM, Oakridge City Estate design)
+import oakridgeFlyer from '../../assets/OakridgeCity/Oakridgecity.png';
 
 // Oakridge City Estate landing page — premium real-estate landing
 const OakridgeCity: React.FC = () => {
   return (
-    <div className="w-full">
+    <div className="w-full bg-gradient-to-b from-white via-[#fbfbf6] to-[#f6ffe9]">
       {/* Hero: split layout (image right on desktop) */}
-      <section className="container mx-auto px-4 py-12 bg-blue-50">
+      <section className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <motion.div
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-blue-600">Oakridge City Estate</h1>
-            <p className="text-grayText mt-2">Omagwa – Isiokpo — Plot size: 460SQM</p>
-            {/* blue accent page */}
+            {/* Title styled like flyer: gold + black */}
+            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+              <span className="text-[#D6A300]">Oakridge</span>{' '}
+              <span className="text-[#111111]">City Estate</span>
+            </h1>
 
-            {/* Pricing chip */}
+            <p className="text-grayText mt-2">
+              Omagwa – Isiokpo — Plot size:{' '}
+              <span className="font-semibold text-[#111111]">460SQM</span>
+            </p>
+
+            {/* Pricing chip: red accent like flyer price tag + clean layout */}
             <div className="flex items-center gap-3 mt-6">
-              <div className="bg-blue-100 rounded-xl px-4 py-2 shadow-sm border border-blue-200">
+              <div className="bg-white rounded-xl px-4 py-3 shadow-sm border border-black/10">
                 <div className="text-sm text-grayText">Price</div>
-                <div className="font-bold text-blue-600">₦5,000,000</div>
+                <div className="font-extrabold text-[#b10000] text-lg">
+                  ₦5,000,000
+                </div>
+                <div className="text-xs text-grayText mt-1">per 460SQM</div>
+              </div>
+
+              <div className="bg-[#fff6d6] rounded-xl px-4 py-3 shadow-sm border border-[#D6A300]/25">
+                <div className="text-sm font-semibold text-[#111111]">Payment Plan</div>
+                <div className="text-xs text-grayText mt-1">
+                  50% initial deposit, spread balance across 3–6 months
+                </div>
               </div>
             </div>
 
-            {/* CTA buttons */}
+            {/* CTA buttons: black + gold accent like flyer */}
             <div className="flex flex-wrap gap-3 mt-6">
-              <a className="bg-blue-600 text-white px-4 py-2 rounded-xl font-semibold">Book Inspection</a>
-              <a href="https://wa.me/2347012345678" className="bg-blue-600 text-white px-4 py-2 rounded-xl font-semibold">Chat on WhatsApp</a>
-              <a href="tel:+2347012345678" className="bg-blue-600 text-white px-4 py-2 rounded-xl">Call Now</a>
-              <a href={oakridgeImg} target="_blank" rel="noreferrer" className="border border-gray-200 px-4 py-2 rounded-xl">Download Flyer</a>
+              <a
+                href="#buy"
+                className="bg-[#111111] hover:bg-black transition text-white px-4 py-2 rounded-xl font-semibold"
+              >
+                Book Inspection
+              </a>
+
+              <a
+                href="https://wa.me/2347012345678"
+                className="bg-[#D6A300] hover:bg-[#b88d00] transition text-black px-4 py-2 rounded-xl font-semibold"
+              >
+                Chat on WhatsApp
+              </a>
+
+              <a
+                href="tel:+2347012345678"
+                className="border border-black/20 hover:border-black transition text-[#111111] px-4 py-2 rounded-xl font-semibold bg-white"
+              >
+                Call Now
+              </a>
+
+              <a
+                href={oakridgeFlyer}
+                target="_blank"
+                rel="noreferrer"
+                className="border border-[#D6A300]/40 hover:border-[#D6A300] transition px-4 py-2 rounded-xl bg-white text-[#111111] font-semibold"
+              >
+                Download Flyer
+              </a>
+            </div>
+
+            {/* Small premium note like flyer footer vibe */}
+            <div className="mt-5 text-sm text-grayText">
+              To book a free site inspection — call{' '}
+              <span className="font-semibold text-[#111111]">+234 903 819 3042</span>
             </div>
           </motion.div>
 
@@ -43,13 +93,19 @@ const OakridgeCity: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="flex justify-center lg:justify-end"
           >
-            <img src={oakridgeImg} alt="Oakridge City Estate" className="rounded-3xl shadow-xl border border-gray-100 max-w-full w-[520px] object-cover" />
+            {/* ✅ Actual flyer image */}
+            <img
+              src={oakridgeFlyer}
+              alt="Oakridge City Estate Flyer"
+              className="rounded-3xl shadow-xl border border-black/10 max-w-full w-[520px] bg-white"
+              loading="lazy"
+            />
           </motion.div>
         </div>
       </section>
 
       {/* Estate Features Row */}
-      <section className="bg-bgLight py-8">
+      <section className="py-8">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-4">
           {[
             { title: 'Gate House', desc: 'Modern security entrance' },
@@ -61,8 +117,11 @@ const OakridgeCity: React.FC = () => {
             { title: 'Individual Fence', desc: 'Plot privacy' },
             { title: 'Supermarket', desc: 'Shopping convenience' },
           ].map((f) => (
-            <div key={f.title} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-              <div className="font-semibold text-dark">{f.title}</div>
+            <div
+              key={f.title}
+              className="bg-white rounded-2xl p-4 shadow-sm border border-black/10"
+            >
+              <div className="font-semibold text-[#111111]">{f.title}</div>
               <div className="text-grayText text-sm mt-1">{f.desc}</div>
             </div>
           ))}
@@ -71,17 +130,25 @@ const OakridgeCity: React.FC = () => {
 
       {/* About This Estate */}
       <section className="container mx-auto px-4 py-10">
-        <div className="max-w-4xl">
-          <h2 className="text-2xl font-bold text-dark">About Oakridge City Estate</h2>
-          <p className="text-grayText mt-3">Oakridge City Estate is a premium residential development in Omagwa – Isiokpo offering 460SQM plots in a fully developed and secured environment. The estate features modern infrastructure including a swimming pool, neighborhood center, supermarket, and well-maintained road networks. This is an ideal investment for families and business owners seeking a balanced community with excellent amenities and strong accessibility.</p>
+        <div className="max-w-4xl bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-black/10">
+          <h2 className="text-2xl font-bold text-[#111111]">
+            About Oakridge City Estate
+          </h2>
+          <p className="text-grayText mt-3">
+            Oakridge City Estate is a premium residential development in Omagwa – Isiokpo offering
+            460SQM plots in a fully developed and secured environment. The estate features modern
+            infrastructure including a swimming pool, neighborhood center, supermarket, and
+            well-maintained road networks. This is an ideal investment for families and business
+            owners seeking a balanced community with excellent amenities and strong accessibility.
+          </p>
         </div>
       </section>
 
       {/* Landmarks */}
-      <section className="bg-bgLight py-8">
+      <section className="py-8">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <h3 className="font-bold text-dark">Nearby Landmarks</h3>
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-black/10">
+            <h3 className="font-bold text-[#111111]">Nearby Landmarks</h3>
             <ul className="mt-3 space-y-2 text-grayText">
               <li>• Omagwa Station Market</li>
               <li>• Omagwa Secondary School</li>
@@ -90,8 +157,8 @@ const OakridgeCity: React.FC = () => {
             </ul>
           </div>
 
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <h3 className="font-bold text-dark">Documentation</h3>
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-black/10">
+            <h3 className="font-bold text-[#111111]">Documentation</h3>
             <ul className="mt-3 space-y-2 text-grayText">
               <li>• Deed of Conveyance</li>
               <li>• Registered Survey Plan</li>
@@ -103,29 +170,42 @@ const OakridgeCity: React.FC = () => {
       </section>
 
       {/* How to Buy (timeline) */}
-      <section className="container mx-auto px-4 py-10">
-        <h3 className="text-2xl font-bold text-dark">How to Buy</h3>
-        <ol className="mt-4 space-y-4">
-          <li>
-            <strong>1. Inquiry & Shortlist:</strong> Explore available plots and contact our sales team for details.
+      <section id="buy" className="container mx-auto px-4 py-10">
+        <h3 className="text-2xl font-bold text-[#111111]">How to Buy</h3>
+
+        <ol className="mt-4 space-y-4 max-w-3xl">
+          <li className="bg-white rounded-2xl p-4 shadow-sm border border-black/10">
+            <strong className="text-[#111111]">1. Inquiry & Shortlist:</strong>{' '}
+            <span className="text-grayText">
+              Explore available plots and contact our sales team for details.
+            </span>
           </li>
-          <li>
-            <strong>2. Inspection Booking:</strong> Schedule a site visit to tour the estate and see the property firsthand.
+          <li className="bg-white rounded-2xl p-4 shadow-sm border border-black/10">
+            <strong className="text-[#111111]">2. Inspection Booking:</strong>{' '}
+            <span className="text-grayText">
+              Schedule a site visit to tour the estate and see the property firsthand.
+            </span>
           </li>
-          <li>
-            <strong>3. Verification & Allocation:</strong> We verify documents and prepare allocation upon payment agreement.
+          <li className="bg-white rounded-2xl p-4 shadow-sm border border-black/10">
+            <strong className="text-[#111111]">3. Verification & Allocation:</strong>{' '}
+            <span className="text-grayText">
+              We verify documents and prepare allocation upon payment agreement.
+            </span>
           </li>
-          <li>
-            <strong>4. Documentation & Closing:</strong> Complete the documentation process with guided support and receive final allocation.
+          <li className="bg-white rounded-2xl p-4 shadow-sm border border-black/10">
+            <strong className="text-[#111111]">4. Documentation & Closing:</strong>{' '}
+            <span className="text-grayText">
+              Complete the documentation process with guided support and receive final allocation.
+            </span>
           </li>
         </ol>
       </section>
 
       {/* What You Get */}
-      <section className="bg-bgLight py-8">
+      <section className="py-8">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <h4 className="font-bold text-dark">What You Get</h4>
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-black/10">
+            <h4 className="font-bold text-[#111111]">What You Get</h4>
             <ul className="mt-3 text-grayText space-y-2">
               <li>• Receipt / payment confirmation</li>
               <li>• Allocation certificate</li>
@@ -136,11 +216,17 @@ const OakridgeCity: React.FC = () => {
           </div>
 
           {/* Gallery preview (small) */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <h4 className="font-bold text-dark">Gallery Preview</h4>
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-black/10">
+            <h4 className="font-bold text-[#111111]">Gallery Preview</h4>
             <div className="mt-3 grid grid-cols-3 gap-2">
               {gallery.slice(0, 6).map((img, i) => (
-                <img key={i} src={img} alt={`oakridge-${i}`} className="rounded-lg object-cover w-full h-20" />
+                <img
+                  key={i}
+                  src={img}
+                  alt={`oakridge-${i}`}
+                  className="rounded-lg object-cover w-full h-20"
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>
@@ -149,7 +235,8 @@ const OakridgeCity: React.FC = () => {
 
       {/* FAQ */}
       <section className="container mx-auto px-4 py-10">
-        <h3 className="text-2xl font-bold text-dark">Frequently Asked Questions</h3>
+        <h3 className="text-2xl font-bold text-[#111111]">Frequently Asked Questions</h3>
+
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
             'Is the estate fully developed?',
@@ -159,23 +246,39 @@ const OakridgeCity: React.FC = () => {
             'Can I resell my plot?',
             'What are the access restrictions?',
             'Are utilities available?',
-            'How far is it from the airport?'
+            'How far is it from the airport?',
           ].map((q) => (
-            <div key={q} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-              <div className="font-semibold text-dark">{q}</div>
-              <div className="text-grayText text-sm mt-2">Oakridge City Estate offers full security, complete documentation, and convenient amenities. Contact us for specific details on availability and terms.</div>
+            <div
+              key={q}
+              className="bg-white rounded-2xl p-4 shadow-sm border border-black/10"
+            >
+              <div className="font-semibold text-[#111111]">{q}</div>
+              <div className="text-grayText text-sm mt-2">
+                Oakridge City Estate offers full security, complete documentation, and convenient
+                amenities. Contact us for specific details on availability and terms.
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Sticky mobile CTA */}
+      {/* Sticky mobile CTA
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 md:hidden">
-        <div className="bg-white rounded-full shadow-lg px-4 py-2 flex items-center gap-3">
-          <a href="https://wa.me/2347012345678" className="bg-blue-600 text-white px-4 py-2 rounded-full">WhatsApp</a>
-          <a href="tel:+2347012345678" className="bg-primary text-dark px-4 py-2 rounded-full">Call</a>
+        <div className="bg-white rounded-full shadow-lg px-4 py-2 flex items-center gap-3 border border-black/10">
+          <a
+            href="https://wa.me/2347012345678"
+            className="bg-[#D6A300] text-black px-4 py-2 rounded-full font-semibold"
+          >
+            WhatsApp
+          </a>
+          <a
+            href="tel:+2347012345678"
+            className="bg-[#111111] text-white px-4 py-2 rounded-full font-semibold"
+          >
+            Call
+          </a>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -3,48 +3,112 @@ import { motion } from 'framer-motion';
 import ContactBar from '../../components/ContactBar';
 import gallery from '../../gallery/primebrook-estate';
 
-// Primebrook Estate landing page — premium real-estate landing
+// ✅ Flyer image path you gave
+import primebrookFlyer from '../../assets/primebook/primebook.jpg';
+
+// Primebrook Estate landing page — flyer-matching premium real-estate landing
 const PrimebrookEstate: React.FC = () => {
   return (
-    <div className="w-full">
+    <div className="w-full bg-gradient-to-b from-[#fff8e1] via-white to-[#f6f7f8]">
       {/* Hero section */}
-      <section className="container mx-auto px-4 py-12 bg-teal-50">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <section className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, x: -12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
+            className="relative"
           >
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-teal-600">Primebrook Estate</h1>
-            <p className="text-grayText mt-2">Stadium Road — Premium Residential Development</p>
+            {/* premium card backdrop */}
+            <div className="absolute -inset-4 rounded-3xl bg-white/80 backdrop-blur-md border border-black/10 shadow-sm" />
 
-            {/* Pricing chip */}
-            <div className="flex items-center gap-3 mt-6">
-              <div className="bg-primary/10 rounded-xl px-4 py-2 shadow-sm border border-primary/20">
-                <div className="text-sm text-grayText">Investment Price</div>
-                <div className="font-bold text-dark">₦75,000,000</div>
+            <div className="relative p-4 sm:p-6">
+              {/* Title style like flyer */}
+              <h1 className="text-4xl sm:text-6xl font-extrabold leading-[1.05]">
+                <span className="text-[#bdbdbd]">Primebrook</span>{' '}
+                <span className="text-[#111111]">Estate</span>
+              </h1>
+
+              <p className="mt-3 inline-flex items-center gap-2 font-extrabold text-[#111111] tracking-wide">
+                <span className="h-2 w-2 rounded-full bg-[#FFC400]" />
+                BUY AND BUILD
+              </p>
+
+              <p className="text-grayText mt-3">
+                Stadium Road — <span className="font-semibold text-[#111111]">Premium Residential Development</span>
+              </p>
+
+              {/* Price + Payment plan (flyer vibe) */}
+              <div className="flex flex-wrap items-stretch gap-3 mt-6">
+                <div className="bg-white rounded-2xl px-5 py-4 shadow-sm border border-black/10">
+                  <div className="text-sm text-grayText">Selling Price</div>
+                  <div className="font-extrabold text-[#111111] text-2xl">₦75,000,000</div>
+                  <div className="text-xs text-grayText mt-1">Buy & Build</div>
+                </div>
+
+                <div className="bg-[#FFC400] rounded-2xl px-5 py-4 shadow-sm border border-[#FFC400]">
+                  <div className="text-sm text-black/70 font-semibold">Payment Plan</div>
+                  <div className="font-extrabold text-black mt-1">50% Initial Deposit</div>
+                  <div className="text-sm text-black/80">
+                    Spread balance within 3–6 months
+                  </div>
+                </div>
               </div>
-            </div>
 
-            {/* CTA buttons */}
-            <div className="flex flex-wrap gap-3 mt-6">
-              <a className="bg-teal-600 text-white px-4 py-2 rounded-xl font-semibold">Book Inspection</a>
-              <a href="https://wa.me/2347012345678" className="bg-teal-600 text-white px-4 py-2 rounded-xl font-semibold">Chat on WhatsApp</a>
-              <a href="tel:+2347012345678" className="bg-teal-600 text-white px-4 py-2 rounded-xl">Call Now</a>
+              {/* CTA buttons (black + yellow like flyer) */}
+              <div className="flex flex-wrap gap-3 mt-6">
+                <a className="bg-[#111111] hover:bg-black transition text-white px-4 py-2 rounded-xl font-semibold">
+                  Book Inspection
+                </a>
+
+                <a
+                  href="https://wa.me/2347012345678"
+                  className="bg-[#FFC400] hover:bg-[#e6b000] transition text-black px-4 py-2 rounded-xl font-extrabold"
+                >
+                  Chat on WhatsApp
+                </a>
+
+                <a
+                  href="tel:+2347012345678"
+                  className="border border-black/20 text-[#111111] hover:bg-[#111111] hover:text-white transition px-4 py-2 rounded-xl font-semibold bg-white"
+                >
+                  Call Now
+                </a>
+
+                <a
+                  href={primebrookFlyer}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="border border-[#FFC400]/60 hover:border-[#FFC400] transition px-4 py-2 rounded-xl bg-white text-[#111111] font-semibold"
+                >
+                  Download Flyer
+                </a>
+              </div>
+
+              <div className="mt-5 text-sm text-grayText">
+                Office: No. 19B Ada George Road, Opposite Father&apos;s House Church, Port Harcourt.
+              </div>
             </div>
           </motion.div>
 
+          {/* Flyer image (show full, no crop) */}
           <motion.div
             initial={{ opacity: 0, x: 12 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="flex justify-center lg:justify-end"
           >
-            <div className="w-[520px] h-80 bg-gradient-to-br from-primary to-primary/40 rounded-3xl shadow-xl border border-gray-100 flex items-center justify-center">
-              <div className="text-center">
-                <p className="text-white text-lg font-semibold">Primebrook Estate</p>
-                <p className="text-white/90 text-2xl font-bold mt-2">Stadium Road</p>
-                <p className="text-white/80 mt-2">Premium Development</p>
+            <div className="w-full max-w-[620px]">
+              <div className="relative overflow-hidden rounded-3xl shadow-xl border border-black/10 bg-white">
+                <div className="aspect-[4/5] w-full">
+                  <img
+                    src={primebrookFlyer}
+                    alt="Primebrook Estate Flyer"
+                    className="h-full w-full object-contain bg-white"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="pointer-events-none absolute inset-0 ring-1 ring-[#FFC400]/20" />
               </div>
             </div>
           </motion.div>
@@ -52,17 +116,18 @@ const PrimebrookEstate: React.FC = () => {
       </section>
 
       {/* Estate Highlights */}
-      <section className="bg-bgLight py-8">
+      <section className="py-8">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-4">
           {[
-            { title: 'Premium Location', desc: 'Stadium Road prime area' },
-            { title: 'Modern Infrastructure', desc: 'Well-planned layout' },
-            { title: 'Security & Gating', desc: 'Gated community' },
-            { title: 'High ROI Potential', desc: 'Strong investment value' },
+            { title: 'Buy & Build', desc: 'Perfect for immediate development' },
+            { title: 'Flexible Payment', desc: '50% deposit, spread 3–6 months' },
+            { title: 'Verified Documents', desc: 'Transparent process & support' },
+            { title: 'Strong Location', desc: 'Close to key landmarks & services' },
           ].map((h) => (
-            <div key={h.title} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-              <div className="font-semibold text-dark">{h.title}</div>
+            <div key={h.title} className="bg-white rounded-2xl p-4 shadow-sm border border-black/10">
+              <div className="font-semibold text-[#111111]">{h.title}</div>
               <div className="text-grayText text-sm mt-1">{h.desc}</div>
+              <div className="mt-3 h-[2px] w-10 bg-[#FFC400]" />
             </div>
           ))}
         </div>
@@ -70,61 +135,42 @@ const PrimebrookEstate: React.FC = () => {
 
       {/* About Primebrook Estate */}
       <section className="container mx-auto px-4 py-10">
-        <div className="max-w-4xl">
-          <h2 className="text-2xl font-bold text-dark">About Primebrook Estate</h2>
-          <p className="text-grayText mt-3">Primebrook Estate is a premium residential development located on Stadium Road, one of Port Harcourt's most prestigious addresses. The estate combines modern infrastructure with sophisticated design, offering an ideal investment opportunity for discerning buyers. With planned amenities and a secure gated environment, Primebrook Estate represents the pinnacle of residential real estate investment in the area.</p>
-        </div>
-      </section>
-
-      {/* Why Invest Here */}
-      <section className="bg-bgLight py-8">
-        <div className="container mx-auto px-4">
-          <h3 className="text-2xl font-bold text-dark mb-6">Why Invest in Primebrook Estate?</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <h4 className="font-semibold text-dark mb-3">Strategic Location</h4>
-              <ul className="space-y-2 text-grayText text-sm">
-                <li>✓ Premium Stadium Road address</li>
-                <li>✓ Central to business district</li>
-                <li>✓ High visibility & accessibility</li>
-                <li>✓ Perfect for mixed-use development</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-              <h4 className="font-semibold text-dark mb-3">Investment Value</h4>
-              <ul className="space-y-2 text-grayText text-sm">
-                <li>✓ Strong appreciation potential</li>
-                <li>✓ Premium pricing reflects location</li>
-                <li>✓ Excellent rental prospects</li>
-                <li>✓ Long-term wealth building</li>
-              </ul>
-            </div>
-          </div>
+        <div className="max-w-4xl bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-black/10">
+          <h2 className="text-2xl font-bold text-[#111111]">About Primebrook Estate</h2>
+          <p className="text-grayText mt-3">
+            Primebrook Estate is a premium Buy &amp; Build opportunity offering a solid foundation for
+            long-term value. Designed for buyers who want to develop immediately or hold strategically,
+            it combines strong accessibility with a guided documentation and allocation process.
+          </p>
         </div>
       </section>
 
       {/* Development Features */}
       <section className="container mx-auto px-4 py-10">
-        <h3 className="text-2xl font-bold text-dark mb-6">Development Features</h3>
+        <h3 className="text-2xl font-bold text-[#111111] mb-6">Development Features</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <h4 className="font-semibold text-dark mb-3">Community Amenities</h4>
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-black/10">
+            <h4 className="font-semibold text-[#111111] mb-3">What You Get</h4>
             <ul className="space-y-2 text-grayText">
-              <li>• Gated security with 24/7 patrol</li>
-              <li>• Modern road infrastructure</li>
-              <li>• Aesthetic landscaping</li>
-              <li>• Community center (planned)</li>
-              <li>• Backup power systems</li>
+              <li>• Deed of Conveyance</li>
+              <li>• Survey Plan</li>
+              <li>• Letter of Allocation</li>
+              <li>• Receipt of Payment</li>
             </ul>
           </div>
 
           {/* Gallery preview */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <h4 className="font-semibold text-dark mb-3">Gallery Preview</h4>
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-black/10">
+            <h4 className="font-semibold text-[#111111] mb-3">Gallery Preview</h4>
             <div className="mt-3 grid grid-cols-3 gap-2">
               {gallery.slice(0, 6).map((img, i) => (
-                <img key={i} src={img} alt={`primebrook-${i}`} className="rounded-lg object-cover w-full h-20" />
+                <img
+                  key={i}
+                  src={img}
+                  alt={`primebrook-${i}`}
+                  className="rounded-lg object-cover w-full h-20"
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>
@@ -132,69 +178,71 @@ const PrimebrookEstate: React.FC = () => {
       </section>
 
       {/* How to Buy */}
-      <section className="bg-bgLight py-8">
+      <section className="py-8">
         <div className="container mx-auto px-4">
-          <h3 className="text-2xl font-bold text-dark mb-6">How to Buy</h3>
-          <ol className="max-w-2xl space-y-3">
-            <li className="flex items-start gap-3">
-              <span className="bg-primary text-dark font-bold rounded-full h-8 w-8 flex items-center justify-center shrink-0">1</span>
-              <div>
-                <div className="font-semibold text-dark">Inquiry & Site Visit</div>
-                <div className="text-grayText text-sm">Contact us and schedule a comprehensive site tour</div>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="bg-primary text-dark font-bold rounded-full h-8 w-8 flex items-center justify-center shrink-0">2</span>
-              <div>
-                <div className="font-semibold text-dark">Investment Assessment</div>
-                <div className="text-grayText text-sm">Review terms and discuss payment options</div>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="bg-primary text-dark font-bold rounded-full h-8 w-8 flex items-center justify-center shrink-0">3</span>
-              <div>
-                <div className="font-semibold text-dark">Documentation & Agreement</div>
-                <div className="text-grayText text-sm">Sign purchase agreement with complete documentation</div>
-              </div>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="bg-primary text-dark font-bold rounded-full h-8 w-8 flex items-center justify-center shrink-0">4</span>
-              <div>
-                <div className="font-semibold text-dark">Allocation & Closure</div>
-                <div className="text-grayText text-sm">Receive allocation certificate and full ownership documentation</div>
-              </div>
-            </li>
+          <h3 className="text-2xl font-bold text-[#111111] mb-6">How to Buy</h3>
+
+          <ol className="max-w-3xl space-y-4">
+            {[
+              { t: 'Inquiry & Site Visit', d: 'Contact us and schedule a comprehensive site tour.' },
+              { t: 'Payment Plan Agreement', d: 'Pay 50% initial deposit and agree on timeline (3–6 months).' },
+              { t: 'Documentation', d: 'We process documentation with guided support.' },
+              { t: 'Allocation & Closure', d: 'Receive allocation and complete ownership paperwork.' },
+            ].map((s, idx) => (
+              <li key={s.t} className="bg-white rounded-2xl p-4 shadow-sm border border-black/10 flex gap-3">
+                <span className="h-8 w-8 rounded-full bg-[#FFC400] text-black font-extrabold flex items-center justify-center shrink-0">
+                  {idx + 1}
+                </span>
+                <div>
+                  <div className="font-semibold text-[#111111]">{s.t}</div>
+                  <div className="text-grayText text-sm mt-1">{s.d}</div>
+                </div>
+              </li>
+            ))}
           </ol>
         </div>
       </section>
 
       {/* FAQ */}
       <section className="container mx-auto px-4 py-10">
-        <h3 className="text-2xl font-bold text-dark">Frequently Asked Questions</h3>
+        <h3 className="text-2xl font-bold text-[#111111]">Frequently Asked Questions</h3>
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
-            'Is this a good investment?',
+            'Is this a Buy & Build opportunity?',
             'What payment plans are available?',
-            'How secure is the estate?',
-            'Are all documents ready?',
-            'Can I resell my investment?',
-            'What is the timeline for allocation?',
+            'What documents will I get?',
+            'Is inspection available?',
+            'How soon is allocation done?',
+            'Can I resell later?',
           ].map((q) => (
-            <div key={q} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
-              <div className="font-semibold text-dark">{q}</div>
-              <div className="text-grayText text-sm mt-2">Primebrook Estate offers a premium investment opportunity with verified documentation and flexible terms. Our team provides comprehensive guidance throughout the investment process.</div>
+            <div key={q} className="bg-white rounded-2xl p-4 shadow-sm border border-black/10">
+              <div className="font-semibold text-[#111111]">{q}</div>
+              <div className="text-grayText text-sm mt-2">
+                Primebrook Estate offers verified documentation and flexible payment terms. Contact us for current
+                availability and exact steps.
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Sticky mobile CTA */}
+      {/* Sticky mobile CTA
       <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 md:hidden">
-        <div className="bg-white rounded-full shadow-lg px-4 py-2 flex items-center gap-3">
-          <a href="https://wa.me/2347012345678" className="bg-teal-600 text-white px-4 py-2 rounded-full">WhatsApp</a>
-          <a href="tel:+2347012345678" className="bg-primary text-dark px-4 py-2 rounded-full">Call</a>
+        <div className="bg-white rounded-full shadow-lg px-4 py-2 flex items-center gap-3 border border-black/10">
+          <a
+            href="https://wa.me/2347012345678"
+            className="bg-[#FFC400] text-black px-4 py-2 rounded-full font-extrabold"
+          >
+            WhatsApp
+          </a>
+          <a
+            href="tel:+2347012345678"
+            className="bg-[#111111] text-white px-4 py-2 rounded-full font-semibold"
+          >
+            Call
+          </a>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

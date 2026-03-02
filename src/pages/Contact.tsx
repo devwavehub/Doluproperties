@@ -3,6 +3,16 @@ import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { Phone, Mail, MapPin, MessageCircle, Globe } from 'lucide-react';
 
+// ✅ hero image
+import villaHero from '../assets/VILLA ALORA1.jpg';
+
+// ✅ YOUR SVG ICONS (edit these paths to your real folder)
+import facebookSvg from '../assets/icons/facebook.svg';
+import instagramSvg from '../assets/icons/instagram.svg';
+import whatsappSvg from '../assets/icons/whatsapp.svg';
+import tiktokSvg from '../assets/icons/tiktok.svg';
+import youtubeSvg from '../assets/icons/youtube.svg';
+
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
@@ -70,37 +80,37 @@ const Contact: React.FC = () => {
     }
   };
 
-  // ✅ Correct details from your screenshot
+  // ✅ Details
   const phone = '08055489605';
   const whatsapp = '08055489605';
   const email = 'info@doluproperties.com';
   const website = 'doluproperties.com';
 
-  // ✅ Correct address (more exact)
   const address =
     "19B Ada-George Road, opposite Fathers House Church, Mgbuoba, Port Harcourt 500272, Rivers State, Nigeria";
 
-  // ✅ Stronger map pin: include business name + full address
-  const MAP_QUERY = useMemo(() => {
-    return `Dolu Properties, ${address}`;
-  }, [address]);
+  const MAP_QUERY = useMemo(() => `Dolu Properties, ${address}`, [address]);
 
   const mapSearchUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAP_QUERY)}`;
-
-  // ✅ Map iframe
   const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(MAP_QUERY)}&output=embed`;
+
+  // ✅ Social links (edit URLs + WhatsApp number)
+  const socialLinks = [
+    { name: 'Facebook', url: 'https://www.facebook.com/DoluProperties/', icon: facebookSvg },
+    { name: 'Instagram', url: 'https://www.instagram.com/doluproperties/', icon: instagramSvg },
+    { name: 'WhatsApp', url: `https://wa.me/234${whatsapp.replace(/^0/, '')}`, icon: whatsappSvg },
+    { name: 'TikTok', url: 'https://www.tiktok.com/@dolu_properties', icon: tiktokSvg },
+    { name: 'YouTube', url: 'https://www.youtube.com/@doluproperties', icon: youtubeSvg },
+  ];
 
   return (
     <div className="w-full">
-      {/* Hero */}
+      {/* ✅ Hero */}
       <section className="relative h-72 sm:h-96 overflow-hidden rounded-b-2xl">
-        <img
-          src="/src/assets/VILLA ALORA1.jpg"
-          alt="hero"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-primary/35 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-black/50" />
+        <img src={villaHero} alt="Contact hero" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-[#F4C400]/20" />
+        <div className="absolute inset-0 bg-black/55" />
+
         <div className="relative z-10 container mx-auto px-4 pt-24 sm:pt-32 h-full flex items-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -108,7 +118,7 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-center w-full"
           >
-            <span className="inline-block bg-white/10 text-white/90 rounded-full px-3 py-1 text-sm font-medium">
+            <span className="inline-block bg-white/10 text-white/90 rounded-full px-3 py-1 text-sm font-medium backdrop-blur border border-white/15">
               Get In Touch
             </span>
             <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold text-white">Contact Us</h1>
@@ -125,11 +135,12 @@ const Contact: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch"
         >
-          {/* Left - contact cards */}
-          <div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+          {/* ✅ LEFT COLUMN */}
+          <div className="flex flex-col gap-6 h-full">
+            {/* contact cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 {
                   title: 'Phone',
@@ -180,25 +191,61 @@ const Contact: React.FC = () => {
               ))}
             </div>
 
-            <div className="bg-bgLight rounded-2xl p-6 border border-gray-100">
+            {/* ✅ Social Links (SVG icons) */}
+            <div className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm">
+              <div className="flex items-center justify-between gap-3 flex-wrap">
+                <h3 className="text-lg font-bold text-dark">Connect with us</h3>
+                <span className="text-xs text-grayText">Follow Dolu Properties</span>
+              </div>
+
+              {/* responsive: wraps on mobile */}
+              <div className="mt-4 flex flex-wrap gap-3">
+                {socialLinks.map((s) => (
+                  <a
+                    key={s.name}
+                    href={s.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center gap-2 rounded-xl border border-gray-200 bg-bgLight px-4 py-2 hover:bg-white hover:shadow-sm transition"
+                    title={s.name}
+                  >
+                    <img
+                      src={s.icon}
+                      alt={s.name}
+                      className="h-5 w-5"
+                      loading="lazy"
+                    />
+                    <span className="text-sm font-semibold text-dark group-hover:text-black">
+                      {s.name}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* ✅ Office Hours (flex-1 fills space so no empty gap) */}
+            <div className="bg-bgLight rounded-2xl p-6 border border-gray-100 flex-1 flex flex-col">
               <h3 className="text-lg font-bold text-dark">Office Hours</h3>
               <p className="text-grayText mt-2">Mon - Sat: 9:00 AM — 6:00 PM</p>
               <p className="text-grayText mt-2">{address}</p>
 
-              <a
-                href={mapSearchUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-dark bg-primary/15 px-4 py-2 rounded-xl hover:bg-primary/20 transition"
-              >
-                <MapPin className="h-4 w-4" />
-                Open in Google Maps
-              </a>
+              <div className="mt-auto pt-5">
+                <a
+                  href={mapSearchUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-dark bg-primary/15 px-4 py-2 rounded-xl hover:bg-primary/20 transition"
+                >
+                  <MapPin className="h-4 w-4" />
+                  Open in Google Maps
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Right - form */}
-          <div>
+          {/* ✅ RIGHT COLUMN */}
+          <div className="flex flex-col gap-6 h-full">
+            {/* form */}
             <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-100">
               <h3 className="text-xl font-bold text-dark mb-3">Send us a message</h3>
 
@@ -294,12 +341,13 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Map card */}
-            <div className="mt-6 rounded-2xl overflow-hidden border border-gray-100 shadow-sm">
-              <div className="bg-white p-4">
+            <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm bg-white flex-1 flex flex-col">
+              <div className="p-4">
                 <h4 className="font-bold text-dark">Visit Our Office</h4>
                 <p className="text-grayText text-sm">Drop by our office or book an inspection.</p>
               </div>
-              <div className="w-full h-72 sm:h-96">
+
+              <div className="w-full flex-1 min-h-[280px] sm:min-h-[360px]">
                 <iframe
                   title="office-location"
                   src={mapEmbedSrc}
@@ -320,7 +368,7 @@ const Contact: React.FC = () => {
             <p className="text-gray-200 text-sm">Call, WhatsApp or email our team for an immediate response.</p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-wrap">
             <a href={`tel:${phone}`} className="bg-primary text-dark px-4 py-2 rounded-xl font-semibold">
               Call
             </a>
@@ -332,7 +380,7 @@ const Contact: React.FC = () => {
             >
               WhatsApp
             </a>
-            <a href={`mailto:${email}`} className="border border-white/20 px-4 py-2 rounded-xl">
+            <a href={`mailto:${email}`} className="border border-white/20 px-4 py-2 rounded-xl rounded-xl">
               Email
             </a>
           </div>

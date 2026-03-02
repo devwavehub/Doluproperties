@@ -6,11 +6,16 @@ import oakridgeImg from './OAKRIDGE CITY ESTATE.jpg';
 import villa1Img from './VILLA ALORA1.jpg';
 import villa2Img from './VILLA ALORA2.jpg';
 import doluLogo from './dolulogo.png';
-
+import oliveestate from './Oliveestate.png';
+import primebrook from './primebook.jpg';
+import armyrange from './Armyrange.png';
 export {
   beulahImg,
   oakridgeImg,
   villa1Img,
   villa2Img,
   doluLogo,
+  primebrook,
+  oliveestate,
+  armyrange,
 };
