@@ -14,6 +14,7 @@ import {
   primebrook,
   oliveestate,
   armyrange,
+  villa3Img
 } from '../assets';
 
 export type PropertyCategory = 'buy_build' | 'buy_hold' | 'move_in';
@@ -115,7 +116,7 @@ const mainProperties: Property[] = [
     locationArea: 'Mini Orlu',
     bedrooms: 4,
     priceLabel: '₦90M / ₦120M',
-    gallery: [villa1Img, villa2Img],
+    gallery: [villa3Img, villa1Img, villa2Img, villa3Img],
     tagline: 'Premium 4-bedroom terrace duplex',
     highlights: [
       'Shell or finished units',

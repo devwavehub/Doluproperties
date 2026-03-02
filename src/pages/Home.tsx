@@ -423,6 +423,62 @@ const Home = () => {
         </div>
       </section>
 
+       {/* =============== BUY & BUILD (MAKE IMAGE FULL LIKE FEATURED) =============== */}
+      <section className="pt-14 pb-16 sm:pt-20 sm:pb-20 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-dark">Move In</h2>
+              <p className="mt-2 text-grayText max-w-2xl leading-relaxed">
+                Ready to live in homes with modern finishing 
+                perfect for buyers who want to relocate immediately without building stress.
+              </p>
+            </div>
+
+            <button
+              onClick={() => navigate('/search?type=move_in')}
+              className="rounded-xl border border-black/10 bg-black text-white px-5 py-3 text-sm font-semibold hover:opacity-95 transition"
+            >
+              View Move In
+            </button>
+          </div>
+
+          {/* ✅ SAME STYLE AS FEATURED: FULL IMAGE CARD + OVERLAY TEXT */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {properties
+              .filter((p) => p.category === 'move_in')
+              .slice(0, 3)
+              .map((p) => (
+                <div
+                  key={p.id}
+                  onClick={() => navigate(`/properties/${p.slug}`)}
+                  className="cursor-pointer relative rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-[360px] sm:h-[420px]"
+                >
+                  <img
+                    src={p.gallery[0]}
+                    alt={p.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+                  <div className="absolute bottom-0 left-0 w-full p-5">
+                    <span className="text-xs text-white/80 uppercase tracking-wide">
+                      {p.category.replace('_', ' ')}
+                    </span>
+                    <h3 className="text-lg font-semibold text-white mt-1">{p.name}</h3>
+                    <p className="text-sm text-white/85 mt-1">{p.locationArea}</p>
+                    <p className="text-sm text-[#F4C400] mt-2 font-extrabold">
+                      {p.priceLabel}
+                    </p>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      </section>
+
       {/* =============== WHY CHOOSE DOLU (PRO) =============== */}
       <section className="pt-14 pb-16 sm:pt-20 sm:pb-20 relative">
         <div className="absolute inset-0 bg-gradient-to-tr from-gray-50 to-gray-100 -z-10" />

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -15,7 +15,17 @@ const Navigation = () => {
   const [isMobilePropertiesOpen, setIsMobilePropertiesOpen] = useState(false);
   const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
 
+  // ✅ NEW: scroll state for glossy navbar
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const propertiesItems = [
     { name: 'All Properties', path: '/properties' },
@@ -42,12 +52,20 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-md">
+    <nav
+      className={[
+        'sticky top-0 z-50 transition-all duration-300',
+        // ✅ base (top of page)
+        !isScrolled ? 'bg-white shadow-md' : '',
+        // ✅ glossy on scroll
+        isScrolled
+          ? 'bg-white/70 backdrop-blur-xl shadow-lg border-b border-black/5'
+          : '',
+      ].join(' ')}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         {/* ✅ Normal navbar height */}
         <div className="flex items-center justify-between h-[70px]">
-
           {/* ✅ Big logo without increasing navbar */}
           <Link
             to="/"
@@ -112,7 +130,13 @@ const Navigation = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-0 w-56 bg-white rounded-xl shadow-2xl border border-primary/10 overflow-hidden"
+                    className={[
+                      'absolute left-0 mt-0 w-56 rounded-xl shadow-2xl overflow-hidden',
+                      // ✅ match glossy vibe
+                      isScrolled
+                        ? 'bg-white/85 backdrop-blur-xl border border-black/10'
+                        : 'bg-white border border-primary/10',
+                    ].join(' ')}
                   >
                     <div className="py-2">
                       {propertiesItems.map((item) => (
@@ -169,7 +193,12 @@ const Navigation = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute left-0 mt-0 w-48 bg-white rounded-xl shadow-2xl border border-primary/10 overflow-hidden"
+                    className={[
+                      'absolute left-0 mt-0 w-48 rounded-xl shadow-2xl overflow-hidden',
+                      isScrolled
+                        ? 'bg-white/85 backdrop-blur-xl border border-black/10'
+                        : 'bg-white border border-primary/10',
+                    ].join(' ')}
                   >
                     <div className="py-2">
                       {aboutItems.map((item) => (
@@ -238,7 +267,13 @@ const Navigation = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.25 }}
-              className="lg:hidden border-t border-primary/10 bg-white max-h-[80vh] overflow-y-auto"
+              className={[
+                'lg:hidden border-t max-h-[80vh] overflow-y-auto',
+                // ✅ keep mobile menu readable + glossy on scroll
+                isScrolled
+                  ? 'border-black/10 bg-white/85 backdrop-blur-xl'
+                  : 'border-primary/10 bg-white',
+              ].join(' ')}
             >
               <div className="px-4 py-6 space-y-1">
                 <Link

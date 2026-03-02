@@ -9,6 +9,7 @@ import doluLogo from './dolulogo.png';
 import oliveestate from './Oliveestate.png';
 import primebrook from './primebook.jpg';
 import armyrange from './Armyrange.png';
+import villa3Img from './VILLA ALORA3.jpeg';
 export {
   beulahImg,
   oakridgeImg,
@@ -18,4 +19,5 @@ export {
   primebrook,
   oliveestate,
   armyrange,
+  villa3Img,
 };
