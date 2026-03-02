@@ -18,6 +18,11 @@ const OakridgeCity: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
+            {/* tiny tag */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-black/5 px-4 py-2 text-xs font-semibold text-dark">
+              <span className="h-2 w-2 rounded-full bg-[#F4C400]" />
+              •Verified Opportunity
+            </div>
             {/* Title styled like flyer: gold + black */}
             <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
               <span className="text-[#D6A300]">Oakridge</span>{' '}
