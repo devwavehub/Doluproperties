@@ -81,8 +81,8 @@ const Contact: React.FC = () => {
   };
 
   // ✅ Details
-  const phone = '08055489605';
-  const whatsapp = '08055489605';
+  const phone = '07032023029';
+  const whatsapp = '07032023029';
   const email = 'info@doluproperties.com';
   const website = 'doluproperties.com';
 

@@ -37,7 +37,7 @@ const OliveEstate: React.FC = () => {
             </h1>
 
             <p className="mt-2 text-white/85 text-sm sm:text-base">
-              A well-positioned residential development in Elele offering 460SQM plots with strong accessibility and long-term value.
+              A well positioned residential development in Elele offering 460SQM plots with strong accessibility and long term value.
             </p>
           </div>
         </div>
@@ -301,7 +301,7 @@ const OliveEstate: React.FC = () => {
             >
               <div className="font-semibold text-[#111111]">{q}</div>
               <div className="text-grayText text-sm mt-2">
-                Yes — payment plan is 50% initial deposit and you can spread the balance within 3–6 months.
+                Yes payment plan is 50% initial deposit and you can spread the balance within 3–6 months.
                 This applies to all purchases.
               </div>
             </div>

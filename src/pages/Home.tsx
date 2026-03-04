@@ -488,7 +488,7 @@ const Home = () => {
               <h2 className="text-2xl sm:text-3xl font-bold text-dark">Why Clients Choose Dolu</h2>
               <p className="mt-3 text-grayText leading-relaxed">
                 Real estate decisions need clarity and confidence. Our approach prioritizes
-                documentation, transparency, and guidance — so you can invest with peace of mind.
+                documentation, transparency, and guidance so you can invest with peace of mind.
               </p>
 
               <div className="mt-6 rounded-2xl bg-white border border-black/5 p-5 shadow-sm">
@@ -498,7 +498,7 @@ const Home = () => {
                     'Clear documentation checks before you commit',
                     'Structured support from inquiry to closing',
                     'Properties in locations positioned for growth',
-                    'No surprise fees — everything explained upfront',
+                    'No surprise fees everything explained upfront',
                   ].map((x, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <CheckCircle2 className="h-4 w-4 text-[#F4C400] mt-0.5" />
@@ -533,7 +533,7 @@ const Home = () => {
                   title: 'Investment Support',
                   icon: Briefcase,
                   description:
-                    'We help you compare options and choose what matches your plan — build now, hold, or move in.',
+                    'We help you compare options and choose what matches your plan build now, hold, or move in.',
                 },
               ].map((pillar, idx) => (
                 <div
@@ -558,7 +558,7 @@ const Home = () => {
           <div className="text-center mb-12">
             <h2 className="text-2xl sm:text-3xl font-bold text-dark">How It Works</h2>
             <p className="mt-3 text-grayText max-w-2xl mx-auto leading-relaxed">
-              A simple process designed to keep everything clear — from property selection to documentation.
+              A simple process designed to keep everything clear from property selection to documentation.
             </p>
           </div>
 

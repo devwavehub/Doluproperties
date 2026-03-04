@@ -36,7 +36,7 @@ const BeulahLayout: React.FC = () => {
             </h1>
 
             <p className="mt-2 text-white/85 text-sm sm:text-base">
-              A well-designed estate in Abara-Etche offering 460SQM plots — ideal for smart investors and future homeowners.
+              A well-designed estate in Abara-Etche offering 460SQM plots ideal for smart investors and future homeowners.
             </p>
           </div>
         </div>
@@ -178,7 +178,7 @@ const BeulahLayout: React.FC = () => {
           <p className="text-grayText mt-3">
             Beulah Layout is a thoughtfully planned estate in Abara Etche offering 460SQM plots ideal
             for both family homes and investment. The location offers strong accessibility, and the layout
-            is designed for comfort and long-term value.
+            is designed for comfort and long term value.
           </p>
         </div>
       </section>
@@ -282,7 +282,7 @@ const BeulahLayout: React.FC = () => {
             <div key={q} className="bg-white rounded-2xl p-4 shadow-sm border border-black/10">
               <div className="font-semibold text-[#111111]">{q}</div>
               <div className="text-grayText text-sm mt-2">
-                We provide clear answers and guided support — reach out for current availability and terms.
+                We provide clear answers and guided support  reach out for current availability and terms.
               </div>
             </div>
           ))}
