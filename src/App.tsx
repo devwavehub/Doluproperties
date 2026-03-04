@@ -59,7 +59,8 @@ function App() {
           <Route path="/about/team" element={<OurTeam />} />
           <Route path="/about/services" element={<OurServices />} />
           {/* Agent profiles (chairman, agent-1 etc) */}
-          {/* using dynamic route allows adding agents without touching routes */}          <Route path="/team/:slug" element={<AgentProfile />} />
+          {/* using dynamic route allows adding agents without touching routes */}         
+           <Route path="/team/:slug" element={<AgentProfile />} />
         </Routes>
       </Layout>
     </Router>

@@ -140,7 +140,7 @@ const AllProperties = () => {
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-gray-600 mb-2">Bedrooms</label>
+              <label className="block text-xs font-semibold text-gray-600 mb-2">Plot Size</label>
               <select
                 value={beds}
                 onChange={(e) => setBeds(e.target.value)}

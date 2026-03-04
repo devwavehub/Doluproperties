@@ -4,10 +4,44 @@ import ContactBar from '../../components/ContactBar';
 import beulahImg from '../../assets/Beulah layout.jpg';
 import gallery from '../../gallery/beulah-layout';
 
+import Beulahlayoutland from '../../assets/Beulah layout/Beulah layoutland.jpg';
 // Beulah Layout landing page — flyer-matching premium real-estate landing
 const BeulahLayout: React.FC = () => {
   return (
     <div className="w-full bg-gradient-to-b from-sky-50 via-white to-[#fff7db]">
+      {/* ✅ MINI HERO (NEW) */}
+      <section className="relative w-full h-[220px] sm:h-[260px] overflow-hidden">
+        {/* Background */}
+        <img
+          src={Beulahlayoutland}
+          alt="Beulah Layout"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          loading="lazy"
+        />
+
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-black/55 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/10 z-0 pointer-events-none" />
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 h-full flex items-end pb-8">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-xs font-semibold text-white backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-[#FFC400]" />
+              Premium Listing • Verified
+            </div>
+
+            <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+              Welcome to <span className="text-[#FFC400]">Beulah Layout</span>
+            </h1>
+
+            <p className="mt-2 text-white/85 text-sm sm:text-base">
+              A well-designed estate in Abara-Etche offering 460SQM plots — ideal for smart investors and future homeowners.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Hero */}
       <section className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -21,10 +55,11 @@ const BeulahLayout: React.FC = () => {
             <div className="absolute -inset-4 rounded-3xl bg-white/80 backdrop-blur-md border border-black/10 shadow-sm" />
 
             <div className="relative p-2 sm:p-6">
-              <h1 className="text-4xl sm:text-6xl font-extrabold text-[#111112] leading-[1.02]">
+              {/* ✅ change title so mini-hero doesn’t feel like it “disappeared” */}
+              <h2 className="text-4xl sm:text-6xl font-extrabold text-[#111112] leading-[1.02]">
                 Beulah <br className="hidden sm:block" />
-                Layout
-              </h1>
+                Layout <span className="text-[#FFC400]">Details</span>
+              </h2>
 
               {/* Yellow location tag (like flyer) */}
               <div className="mt-4 inline-flex items-center gap-2 bg-[#FFC400] text-black font-extrabold px-4 py-2 rounded-xl">
@@ -46,12 +81,8 @@ const BeulahLayout: React.FC = () => {
 
                 <div className="bg-[#111111] rounded-2xl px-5 py-4 shadow-sm border border-black">
                   <div className="text-sm text-white/70">Payment Plan</div>
-                  <div className="font-semibold text-white mt-1">
-                    50% initial deposit
-                  </div>
-                  <div className="text-sm text-white/80">
-                    Spread balance within 3–6 months
-                  </div>
+                  <div className="font-semibold text-white mt-1">50% initial deposit</div>
+                  <div className="text-sm text-white/80">Spread balance within 3–6 months</div>
                 </div>
               </div>
 
@@ -62,14 +93,14 @@ const BeulahLayout: React.FC = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/2347012345678"
+                  href="https://wa.me/2347032023029"
                   className="bg-[#FFC400] hover:bg-[#e6b000] transition text-black px-4 py-2 rounded-xl font-extrabold"
                 >
                   Chat on WhatsApp
                 </a>
 
                 <a
-                  href="tel:+2347012345678"
+                  href="tel:+2347032023029"
                   className="border border-black/20 text-[#111111] hover:bg-[#111111] hover:text-white transition px-4 py-2 rounded-xl font-semibold bg-white"
                 >
                   Call Now

@@ -6,10 +6,44 @@ import gallery from '../../gallery/villa-alora';
 // ✅ Use the NEW original flyer image (Villa Alora)
 import villaFlyer from '../../assets/VILLAALORA/VILLA ALORA3.jpeg';
 
+import villaland from '../../assets/VILLAALORA/VILLAALORAland.jpg';
 // Villa Alora landing page — matches flyer style (blue/clean/premium)
 const VillaAlora: React.FC = () => {
   return (
     <div className="w-full bg-gradient-to-b from-[#f7fbff] via-white to-white">
+      {/* ✅ MINI HERO (NEW) */}
+      <section className="relative w-full h-[220px] sm:h-[260px] overflow-hidden">
+        {/* Background */}
+        <img
+          src={villaland}
+          alt="Villa Alora"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          loading="lazy"
+        />
+
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-black/55 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/10 z-0 pointer-events-none" />
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 h-full flex items-end pb-8">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-xs font-semibold text-white backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-[#0b5cff]" />
+              Buy &amp; Move In • Premium Apartments
+            </div>
+
+            <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+              Welcome to <span className="text-[#0b5cff]">Villa Alora</span>
+            </h1>
+
+            <p className="mt-2 text-white/85 text-sm sm:text-base">
+              A premium development in Mini-Orlu (Ada-George) featuring 10 units of 4-bedroom terrace duplexes with flexible purchase options.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* HERO */}
       <section className="container mx-auto px-4 py-10 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -24,9 +58,11 @@ const VillaAlora: React.FC = () => {
               Buy & Move In • Premium Apartments
             </div>
 
-            <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold tracking-tight text-dark">
-              Villa <span className="text-[#0b5cff]">Alora</span>
-            </h1>
+            {/* ✅ changed to h2 + “Details” so mini hero remains the main intro */}
+            <h2 className="mt-5 text-4xl sm:text-5xl font-extrabold tracking-tight text-dark">
+              Villa <span className="text-[#0b5cff]">Alora</span>{' '}
+              <span className="text-[#0b5cff]">Details</span>
+            </h2>
 
             <p className="mt-2 text-grayText">
               <span className="font-semibold text-dark">Mini-Orlu (Ada-George)</span> •{' '}
@@ -83,7 +119,7 @@ const VillaAlora: React.FC = () => {
               </a>
 
               <a
-                href="https://wa.me/2347012345678"
+                href="https://wa.me/2347032023029"
                 target="_blank"
                 rel="noreferrer"
                 className="bg-black hover:bg-black/90 transition text-white px-5 py-3 rounded-xl font-semibold"
@@ -92,7 +128,7 @@ const VillaAlora: React.FC = () => {
               </a>
 
               <a
-                href="tel:+2347012345678"
+                href="tel:+2347032023029"
                 className="border border-black/10 bg-white hover:bg-black/5 transition px-5 py-3 rounded-xl font-semibold text-dark"
               >
                 Call Now
@@ -133,9 +169,7 @@ const VillaAlora: React.FC = () => {
         <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="rounded-2xl bg-white border border-black/5 p-6 shadow-sm">
             <h3 className="text-lg font-bold text-dark">Location</h3>
-            <p className="text-grayText mt-2">
-              Mini-Orlu, Ada-George • Port Harcourt
-            </p>
+            <p className="text-grayText mt-2">Mini-Orlu, Ada-George • Port Harcourt</p>
           </div>
 
           <div className="rounded-2xl bg-white border border-black/5 p-6 shadow-sm">
@@ -156,7 +190,7 @@ const VillaAlora: React.FC = () => {
 
             <div className="mt-4 flex flex-wrap gap-2">
               <a
-                href="https://wa.me/2347012345678"
+                href="https://wa.me/2347032023029"
                 target="_blank"
                 rel="noreferrer"
                 className="bg-[#0b5cff] text-white px-4 py-2 rounded-xl font-semibold"
@@ -164,7 +198,7 @@ const VillaAlora: React.FC = () => {
                 WhatsApp
               </a>
               <a
-                href="tel:+2347012345678"
+                href="tel:+2347032023029"
                 className="bg-white border border-black/10 px-4 py-2 rounded-xl font-semibold text-dark"
               >
                 Call

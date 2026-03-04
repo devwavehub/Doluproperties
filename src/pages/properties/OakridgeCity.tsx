@@ -5,11 +5,44 @@ import gallery from '../../gallery/oakridge-city';
 
 // ✅ Actual flyer image (contains N5M, 460SQM, Oakridge City Estate design)
 import oakridgeFlyer from '../../assets/OakridgeCity/Oakridgecity.png';
-
+import oakridgeland from '../../assets/OakridgeCity/OakridgeCityland.jpg';
 // Oakridge City Estate landing page — premium real-estate landing
 const OakridgeCity: React.FC = () => {
   return (
     <div className="w-full bg-gradient-to-b from-white via-[#fbfbf6] to-[#f6ffe9]">
+      {/* ✅ MINI HERO (NEW) */}
+      <section className="relative w-full h-[220px] sm:h-[260px] overflow-hidden">
+        {/* Background */}
+        <img
+          src={oakridgeland}
+          alt="Oakridge City Estate"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          loading="lazy"
+        />
+
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-black/55 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/10 z-0 pointer-events-none" />
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 h-full flex items-end pb-8">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-xs font-semibold text-white backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-[#D6A300]" />
+              Premium Listing • Verified
+            </div>
+
+            <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+              Welcome to <span className="text-[#D6A300]">Oakridge City Estate</span>
+            </h1>
+
+            <p className="mt-2 text-white/85 text-sm sm:text-base">
+              A premium residential development in Omagwa – Isiokpo offering 460SQM plots with modern amenities and strong accessibility.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Hero: split layout (image right on desktop) */}
       <section className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -23,11 +56,13 @@ const OakridgeCity: React.FC = () => {
               <span className="h-2 w-2 rounded-full bg-[#F4C400]" />
               •Verified Opportunity
             </div>
-            {/* Title styled like flyer: gold + black */}
-            <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight">
+
+            {/* ✅ changed to h2 + “Details” so Mini Hero remains the main intro */}
+            <h2 className="text-4xl sm:text-5xl font-extrabold leading-tight">
               <span className="text-[#D6A300]">Oakridge</span>{' '}
-              <span className="text-[#111111]">City Estate</span>
-            </h1>
+              <span className="text-[#111111]">City Estate</span>{' '}
+              <span className="text-[#D6A300]">Details</span>
+            </h2>
 
             <p className="text-grayText mt-2">
               Omagwa – Isiokpo — Plot size:{' '}
@@ -38,9 +73,7 @@ const OakridgeCity: React.FC = () => {
             <div className="flex items-center gap-3 mt-6">
               <div className="bg-white rounded-xl px-4 py-3 shadow-sm border border-black/10">
                 <div className="text-sm text-grayText">Price</div>
-                <div className="font-extrabold text-[#b10000] text-lg">
-                  ₦5,000,000
-                </div>
+                <div className="font-extrabold text-[#b10000] text-lg">₦5,000,000</div>
                 <div className="text-xs text-grayText mt-1">per 460SQM</div>
               </div>
 
@@ -62,14 +95,14 @@ const OakridgeCity: React.FC = () => {
               </a>
 
               <a
-                href="https://wa.me/2347012345678"
+                href="https://wa.me/2347032023029"
                 className="bg-[#D6A300] hover:bg-[#b88d00] transition text-black px-4 py-2 rounded-xl font-semibold"
               >
                 Chat on WhatsApp
               </a>
 
               <a
-                href="tel:+2347012345678"
+                href="tel:+2347032023029"
                 className="border border-black/20 hover:border-black transition text-[#111111] px-4 py-2 rounded-xl font-semibold bg-white"
               >
                 Call Now
@@ -88,7 +121,7 @@ const OakridgeCity: React.FC = () => {
             {/* Small premium note like flyer footer vibe */}
             <div className="mt-5 text-sm text-grayText">
               To book a free site inspection — call{' '}
-              <span className="font-semibold text-[#111111]">+234 903 819 3042</span>
+              <span className="font-semibold text-[#111111]">+234 703 202 3029</span>
             </div>
           </motion.div>
 
@@ -136,9 +169,7 @@ const OakridgeCity: React.FC = () => {
       {/* About This Estate */}
       <section className="container mx-auto px-4 py-10">
         <div className="max-w-4xl bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-black/10">
-          <h2 className="text-2xl font-bold text-[#111111]">
-            About Oakridge City Estate
-          </h2>
+          <h2 className="text-2xl font-bold text-[#111111]">About Oakridge City Estate</h2>
           <p className="text-grayText mt-3">
             Oakridge City Estate is a premium residential development in Omagwa – Isiokpo offering
             460SQM plots in a fully developed and secured environment. The estate features modern

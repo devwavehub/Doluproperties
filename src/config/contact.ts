@@ -2,8 +2,8 @@
 // update these values once and they propagate to search pages, property details, agent profiles etc.
 
 const CONTACT = {
-  phone: '+234 XXX XXX XXXX',
-  whatsapp: '+234XXXXXXXXXX',
+  phone: '+234 703 202 3029',
+  whatsapp: '+234 703 202 3029',
   email: 'info@doluproperties.com',
 };
 

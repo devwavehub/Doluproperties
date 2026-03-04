@@ -114,7 +114,7 @@ const SearchResults = () => {
             onChange={(e) => setBeds(e.target.value)}
             className="border p-2 rounded"
           >
-            <option value="any">Bedrooms</option>
+            <option value="any">Plot Size</option>
             {[...Array(11).keys()].map((n) => (
               <option key={n} value={n.toString()}>
                 {n}

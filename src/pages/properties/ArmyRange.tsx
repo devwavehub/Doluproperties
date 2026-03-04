@@ -5,12 +5,46 @@ import gallery from '../../gallery/army-range';
 
 // ✅ Flyer image (Army Range)
 import armyRangeFlyer from '../../assets/Armyrange/Armyrange.png';
+import armyRangeland from '../../assets/Armyrange/Armyrangeland.jpg';
 
 // Army Range Estate landing page — matches flyer style
 const ArmyRange: React.FC = () => {
   return (
     <div className="w-full bg-gradient-to-b from-[#f2faf6] via-white to-white">
-      {/* HERO */}
+      {/* ✅ MINI HERO */}
+<section className="relative w-full h-[220px] sm:h-[260px] overflow-hidden">
+  {/* Background */}
+  <img
+    src={armyRangeland}
+    alt="Army Range Estate"
+    className="absolute inset-0 w-full h-full object-cover z-0"
+    loading="lazy"
+  />
+
+  {/* Overlays */}
+  <div className="absolute inset-0 bg-black/55 z-0 pointer-events-none" />
+  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/10 z-0 pointer-events-none" />
+
+  {/* Content (FORCE ABOVE) */}
+  <div className="relative z-10 container mx-auto px-4 h-full flex items-end pb-8">
+    <div className="max-w-3xl">
+      <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-xs font-semibold text-white backdrop-blur">
+        <span className="h-2 w-2 rounded-full bg-[#F4C400]" />
+        Premium Listing • Verified
+      </div>
+
+      <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+        Welcome to <span className="text-[#F4C400]">Army Range Estate</span>
+      </h1>
+
+      <p className="mt-2 text-white/85 text-sm sm:text-base">
+        A secure Buy &amp; Build opportunity in Igrwuta – Eneka, designed for confident homeowners and smart investors.
+      </p>
+    </div>
+  </div>
+</section>
+
+      {/* HERO (EXISTING) */}
       <section className="container mx-auto px-4 py-10 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* LEFT */}
@@ -25,9 +59,9 @@ const ArmyRange: React.FC = () => {
               Buy & Build • Verified Opportunity
             </div>
 
-            <h1 className="mt-5 text-4xl sm:text-5xl font-extrabold tracking-tight text-dark">
-              Army Range <span className="text-[#F4C400]">Estate</span>
-            </h1>
+           <h2 className="mt-5 text-3xl sm:text-4xl font-extrabold tracking-tight text-dark">
+  Army Range <span className="text-[#F4C400]">Estate</span> Details
+</h2>
 
             <p className="mt-2 text-grayText">
               <span className="font-semibold text-dark">Igrwuta – Eneka</span> •{' '}
@@ -59,7 +93,7 @@ const ArmyRange: React.FC = () => {
               </a>
 
               <a
-                href="https://wa.me/2347012345678"
+                href="https://wa.me/2347032023029"
                 className="bg-[#F4C400] hover:opacity-95 transition text-black px-5 py-3 rounded-xl font-semibold"
                 target="_blank"
                 rel="noreferrer"
@@ -68,7 +102,7 @@ const ArmyRange: React.FC = () => {
               </a>
 
               <a
-                href="tel:+2347012345678"
+                href="tel:+2347032023029"
                 className="border border-black/10 bg-white hover:bg-black/5 transition px-5 py-3 rounded-xl font-semibold text-dark"
               >
                 Call Now

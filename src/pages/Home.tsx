@@ -174,7 +174,7 @@ const Home = () => {
 
                 <div>
                   <label className="block text-xs font-semibold text-gray-600 mb-2">
-                    Bedrooms
+                    Plot Size
                   </label>
                   <select
                     value={beds}
@@ -423,7 +423,7 @@ const Home = () => {
         </div>
       </section>
 
-       {/* =============== BUY & BUILD (MAKE IMAGE FULL LIKE FEATURED) =============== */}
+       {/* =============== BUY & MOVE IN (MAKE IMAGE FULL LIKE FEATURED) =============== */}
       <section className="pt-14 pb-16 sm:pt-20 sm:pb-20 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between gap-6 flex-wrap mb-10">
@@ -643,7 +643,7 @@ const Home = () => {
 
             <div className="flex flex-wrap gap-3">
               <a
-                href="tel:+2340000000000"
+                href="tel:+2347032023029"
                 className="inline-flex items-center gap-2 rounded-xl bg-[#F4C400] px-5 py-3 text-sm font-semibold text-black hover:opacity-95 transition"
               >
                 <PhoneCall className="h-4 w-4" />
@@ -651,7 +651,7 @@ const Home = () => {
               </a>
 
               <a
-                href="https://wa.me/2340000000000"
+                href="https://wa.me/2347032023029"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-5 py-3 text-sm font-semibold text-white hover:bg-white/15 transition"

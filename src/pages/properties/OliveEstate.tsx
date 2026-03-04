@@ -5,11 +5,44 @@ import gallery from '../../gallery/olive-estate';
 
 // ✅ Flyer image
 import oliveFlyer from '../../assets/OliveEstate/Oliveestate.png';
-
+import oliveland from '../../assets/OliveEstate/OliveEstateland.jpg';
 // Olive Estate landing page — flyer-matching premium real-estate landing (green theme)
 const OliveEstate: React.FC = () => {
   return (
     <div className="w-full bg-gradient-to-b from-[#f4faee] via-white to-[#fffdf5]">
+      {/* ✅ MINI HERO (NEW) */}
+      <section className="relative w-full h-[220px] sm:h-[260px] overflow-hidden">
+        {/* Background */}
+        <img
+          src={oliveland}
+          alt="Olive Estate"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          loading="lazy"
+        />
+
+        {/* Overlays */}
+        <div className="absolute inset-0 bg-black/55 z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/10 z-0 pointer-events-none" />
+
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 h-full flex items-end pb-8">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-xs font-semibold text-white backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-[#d6e79a]" />
+              Prime Location • Verified
+            </div>
+
+            <h1 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+              Welcome to <span className="text-[#d6e79a]">Olive Estate</span>
+            </h1>
+
+            <p className="mt-2 text-white/85 text-sm sm:text-base">
+              A well-positioned residential development in Elele offering 460SQM plots with strong accessibility and long-term value.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Hero */}
       <section className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -23,9 +56,11 @@ const OliveEstate: React.FC = () => {
             <div className="absolute -inset-4 rounded-3xl bg-white/80 backdrop-blur-md border border-[#2f5d2f]/15 shadow-sm" />
 
             <div className="relative p-4 sm:p-6">
-              <h1 className="text-4xl sm:text-6xl font-extrabold leading-[1.05] text-[#1f4a25]">
-                Olive <span className="text-[#2f5d2f]">Estate</span>
-              </h1>
+              {/* ✅ changed to h2 + “Details” so mini hero remains the main intro */}
+              <h2 className="text-4xl sm:text-6xl font-extrabold leading-[1.05] text-[#1f4a25]">
+                Olive <span className="text-[#2f5d2f]">Estate</span>{' '}
+                <span className="text-[#1f4a25]">Details</span>
+              </h2>
 
               {/* “Prime Location” pill like flyer vibe */}
               <div className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#2f5d2f] text-white px-4 py-2 font-semibold">
@@ -34,7 +69,8 @@ const OliveEstate: React.FC = () => {
               </div>
 
               <p className="text-grayText mt-3">
-                Elele — Plot size: <span className="font-semibold text-[#111111]">460SQM</span>
+                Elele — Plot size:{' '}
+                <span className="font-semibold text-[#111111]">460SQM</span>
               </p>
 
               {/* Price + Payment Plan (applies to all) */}
@@ -48,12 +84,8 @@ const OliveEstate: React.FC = () => {
                 <div className="bg-[#2f5d2f] rounded-2xl px-5 py-4 shadow-sm border border-[#2f5d2f]">
                   <div className="text-sm text-white/80 font-semibold">Payment Plan</div>
                   <div className="font-extrabold text-white mt-1">50% Initial Deposit</div>
-                  <div className="text-sm text-white/90">
-                    Spread balance within 3–6 months
-                  </div>
-                  <div className="text-xs text-white/80 mt-1">
-                    (Applies to all)
-                  </div>
+                  <div className="text-sm text-white/90">Spread balance within 3–6 months</div>
+                  <div className="text-xs text-white/80 mt-1">(Applies to all)</div>
                 </div>
               </div>
 
@@ -67,14 +99,14 @@ const OliveEstate: React.FC = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/2347012345678"
+                  href="https://wa.me/2347032023029"
                   className="bg-[#d6e79a] hover:bg-[#c9dd86] transition text-[#1f2d16] px-4 py-2 rounded-xl font-extrabold"
                 >
                   Chat on WhatsApp
                 </a>
 
                 <a
-                  href="tel:+2347012345678"
+                  href="tel:+2347032023029"
                   className="border border-[#2f5d2f]/40 text-[#2f5d2f] hover:bg-[#2f5d2f] hover:text-white transition px-4 py-2 rounded-xl font-semibold bg-white"
                 >
                   Call Now
@@ -233,7 +265,10 @@ const OliveEstate: React.FC = () => {
               { title: 'Payment Plan', desc: 'Pay 50% initial deposit and spread balance within 3–6 months (applies to all)' },
               { title: 'Allocation & Handover', desc: 'Receive allocation certificate and full support' },
             ].map((step, idx) => (
-              <li key={step.title} className="bg-white rounded-2xl p-4 shadow-sm border border-[#2f5d2f]/10 flex gap-3">
+              <li
+                key={step.title}
+                className="bg-white rounded-2xl p-4 shadow-sm border border-[#2f5d2f]/10 flex gap-3"
+              >
                 <span className="bg-[#d6e79a] text-[#1f2d16] font-extrabold rounded-full h-8 w-8 flex items-center justify-center shrink-0">
                   {idx + 1}
                 </span>

@@ -194,10 +194,10 @@ const Footer = () => {
                 <span className="text-[#F4C400]">📞</span>
 
                 <a
-                  href="tel:+2348055489605"
+                  href="tel:+2347032023029"
                   className="text-gray-400 hover:text-[#F4C400] transition"
                 >
-                  +234 805 548 9605
+                  +234 703 202 3029
                 </a>
 
               </div>
